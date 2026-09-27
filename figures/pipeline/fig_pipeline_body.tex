@@ -1,0 +1,83 @@
+\begin{tikzpicture}[
+  x=1mm, y=1mm,
+  font=\footnotesize,
+  >={Stealth[length=4pt,width=3pt]},
+  every node/.style={align=center},
+  blk/.style={draw, line width=0.6pt, rounded corners=1pt, text width=26mm,
+              inner sep=2.5pt, minimum height=11mm},
+  src/.style={blk, fill=black!7},
+  dec/.style={draw, line width=0.6pt, diamond, aspect=2.2, inner sep=1pt,
+              text width=30mm},
+  term/.style={draw, line width=0.6pt, rounded corners=1pt, text width=12mm,
+              inner sep=2.5pt, minimum height=7mm},
+  ar/.style={->, line width=0.6pt},
+  tick/.style={line width=0.4pt},
+]
+
+% ---------------------------------------------------------------- input path
+\node[src] (lcs)  at (  0,0) {Low-cost node\\5 channels, 1\,min};
+\node[blk] (flag) at ( 34,0) {Flag-based\\minute cleaning};
+\node[blk] (hr1)  at ( 68,0) {Hourly\\mean};
+\node[blk] (tf)   at (102,0) {$\log(1{+}x)$ on PM,\\then $z$-score};
+\node[blk] (X)    at (136,0) {Input $\mathbf{X}$\\$24\times5$};
+
+\draw[ar] (lcs)  -- (flag);
+\draw[ar] (flag) -- (hr1);
+\draw[ar] (hr1)  -- (tf);
+\draw[ar] (tf)   -- (X);
+
+% ------------------------------------------------------------ window geometry
+\draw[dashed, line width=0.4pt, rounded corners=2pt] (20,-16) rectangle (118,-51);
+% Title sits on the bottom border with a white backdrop. Placed at the top it
+% lines up with the overlap annotation and the two read as one heading.
+\node[anchor=west, fill=white, inner sep=1.5pt, font=\scriptsize\itshape]
+     at (24,-51) {Window geometry};
+
+% Overlap of the input span and the label span, present whenever h < 24. Drawn
+% as a full-height band, not a rectangle between the bars: the two window bars
+% are opaque, so a short band survives only in the gap between them and the
+% figure's main honest point becomes invisible.
+\fill[black!9] (52,-42) rectangle (74,-21);
+\draw[dashed, line width=0.3pt, black!55] (52,-42) -- (52,-21);
+\draw[dashed, line width=0.3pt, black!55] (74,-42) -- (74,-21);
+\node[font=\scriptsize, anchor=south] at (63,-21.2) {overlap when $h<24$};
+
+% Guides tying the outer window edges to their ticks on the time axis.
+\draw[dashed, line width=0.3pt, black!55] (30,-42) -- (30,-23);
+\draw[dashed, line width=0.3pt, black!55] (96,-42) -- (96,-33);
+
+\draw[fill=black!18, line width=0.6pt] (30,-28) rectangle (74,-23);
+\node[font=\scriptsize] at (52,-25.5) {24\,h input context};
+
+\draw[fill=white, line width=0.6pt] (52,-38) rectangle (96,-33);
+\node[font=\scriptsize] at (74,-35.5) {24\,h label window};
+
+% The horizon is the gap between the two window *ends*, matching the code's
+% definition (hours past the last input hour at which the label window ends).
+\draw[<->, line width=0.6pt] (74,-30.5) -- (96,-30.5);
+\node[font=\scriptsize, anchor=west] at (97,-30.5) {horizon $h$};
+
+\draw[ar] (26,-43) -- (106,-43);
+\node[font=\scriptsize, anchor=west] at (107,-43) {time};
+\foreach \x/\lab in {30/$s$, 52/$s{+}h$, 74/$s{+}24$, 96/$s{+}h{+}24$}{%
+  \draw[tick] (\x,-42) -- (\x,-44);
+  \node[font=\scriptsize, anchor=north] at (\x,-44.5) {\lab};
+}
+
+% ---------------------------------------------------------------- label path
+\node[src] (ref)  at (  0,-66) {Reference monitor\\PM$_{2.5}$, PM$_{10}$};
+\node[blk] (hr2)  at ( 34,-66) {Hourly\\mean};
+\node[blk] (avg)  at ( 70,-66) {24\,h mean over\\label window};
+\node[dec] (who)  at (110,-66) {$\overline{\mathrm{PM}}_{2.5}>15$ or\\[1pt]$\overline{\mathrm{PM}}_{10}>45$?};
+\node[term] (y1)   at (150,-58) {$y=1$};
+\node[term] (y0)   at (150,-74) {$y=0$};
+
+\draw[ar] (ref) -- (hr2);
+\draw[ar] (hr2) -- (avg);
+\draw[ar] (avg) -- (who);
+\draw[ar] (who.east) -- ++(4,0) |- (y1.west);
+\draw[ar] (who.east) -- ++(4,0) |- (y0.west);
+\node[font=\scriptsize, anchor=south east] at (140,-57.5) {Y};
+\node[font=\scriptsize, anchor=north east] at (140,-74.5) {N};
+
+\end{tikzpicture}

@@ -1,0 +1,19 @@
+% Produces a tightly cropped, caption-free PDF of the pipeline drawing, for
+% \includegraphics in the manuscript. The caption lives in the manuscript, not
+% here.
+%
+%   tectonic fig_pipeline_standalone.tex   ->  fig_pipeline_standalone.pdf
+%
+% NOT class=IEEEtran: that class imposes letter-size page geometry and defeats
+% standalone's cropping, yielding a full 8.5x11 in page with the drawing adrift
+% on it. Loading the fonts directly keeps the typeface identical to IEEEtran
+% (Times text, 10pt base so \footnotesize is 8pt) while letting standalone crop
+% to the picture's own bounding box.
+\documentclass[10pt, border=2pt]{standalone}
+\usepackage{times}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric,calc}
+\usepackage{amsmath}
+\begin{document}
+\input{fig_pipeline_body.tex}
+\end{document}

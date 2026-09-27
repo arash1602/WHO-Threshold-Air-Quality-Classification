@@ -1,0 +1,127 @@
+{
+  "schema": 5,
+  "arch": "TCN",
+  "experiment": "multi",
+  "protocol": "blocked",
+  "context_size": 24,
+  "scaling": "logz",
+  "overlap": 0.5,
+  "horizon": 24,
+  "embargo_hours": 48,
+  "selected_by": "argmax of mean inner-fold validation pr_auc, pooled over all outer folds",
+  "hyperparameters": {
+    "tcn_channels": [
+      64,
+      64,
+      64
+    ],
+    "kernel_size": 2,
+    "dropout": 0.3,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0
+  },
+  "inner_val_pr_auc_mean": 0.6878659510181274,
+  "inner_val_pr_auc_std": 0.06365827684794052,
+  "n_outer": 3,
+  "n_inner": 3,
+  "outer_fold_winners": [
+    {
+      "outer": "heldout-Antwerp",
+      "combo": 27,
+      "hp": {
+        "tcn_channels": [
+          32,
+          32,
+          32,
+          32
+        ],
+        "kernel_size": 3,
+        "dropout": 0.3,
+        "learning_rate": 0.0003,
+        "weight_decay": 0.0
+      }
+    },
+    {
+      "outer": "heldout-Oslo",
+      "combo": 2,
+      "hp": {
+        "tcn_channels": [
+          16,
+          16
+        ],
+        "kernel_size": 3,
+        "dropout": 0.3,
+        "learning_rate": 0.001,
+        "weight_decay": 0.0
+      }
+    },
+    {
+      "outer": "heldout-Zagreb",
+      "combo": 20,
+      "hp": {
+        "tcn_channels": [
+          64,
+          64,
+          64
+        ],
+        "kernel_size": 2,
+        "dropout": 0.3,
+        "learning_rate": 0.001,
+        "weight_decay": 0.0
+      }
+    }
+  ],
+  "hp_agreement": 0.3333333333333333,
+  "nested_test_pr_auc_mean": 0.5166751122174098,
+  "nested_test_pr_auc_std": 0.20587056791652567,
+  "nested_test_f1_mean": 0.515713321951954,
+  "threshold_rule": "f2-max on val, median over the winning combo's inner folds (v1)",
+  "threshold_beta": 2.0,
+  "nested_test_at05_means": {
+    "accuracy": 0.786102003119482,
+    "precision": 0.4515420958721294,
+    "recall": 0.6042363695937395,
+    "f1": 0.515713321951954,
+    "f2": 0.5650107447616274
+  },
+  "nested_test_at_threshold_means": {
+    "accuracy": 0.6285374337156563,
+    "precision": 0.3321216373318019,
+    "recall": 0.7810860194036252,
+    "f1": 0.44810010245933957,
+    "f2": 0.5851151161964507
+  },
+  "nested_test_at_threshold_stds": {
+    "accuracy": 0.03865159303557948,
+    "precision": 0.16186720523124884,
+    "recall": 0.135532894809526,
+    "f1": 0.18460733740057908,
+    "f2": 0.18583945879457497
+  },
+  "nested_test_f2_mean": 0.5650107447616274,
+  "nested_test_f2_at_threshold_mean": 0.5851151161964507,
+  "nested_test_f2_at_threshold_std": 0.18583945879457497,
+  "nested_test_f1_at_threshold_mean": 0.44810010245933957,
+  "nested_test_f1_at_threshold_std": 0.18460733740057908,
+  "outer_thresholds": [
+    {
+      "outer": "heldout-Antwerp",
+      "logit": -0.1706443578004837,
+      "prob": 0.45744213243833526
+    },
+    {
+      "outer": "heldout-Oslo",
+      "logit": -1.3765050172805786,
+      "prob": 0.20157089588120833
+    },
+    {
+      "outer": "heldout-Zagreb",
+      "logit": -1.442625105381012,
+      "prob": 0.19113916508716128
+    }
+  ],
+  "threshold_prob_median": 0.20157089588120833,
+  "threshold_prob_min": 0.19113916508716128,
+  "threshold_prob_max": 0.45744213243833526,
+  "nested_test_note": "Unbiased estimate of the tuning+training PROCEDURE, not of the single 'hyperparameters' set above. Different outer folds may select different hyperparameters; see outer_fold_winners and hp_agreement."
+}

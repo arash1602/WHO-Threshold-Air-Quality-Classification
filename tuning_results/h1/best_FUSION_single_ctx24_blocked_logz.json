@@ -1,0 +1,351 @@
+{
+  "schema": 5,
+  "arch": "FUSION",
+  "experiment": "single",
+  "protocol": "blocked",
+  "context_size": 24,
+  "scaling": "logz",
+  "overlap": 0.5,
+  "horizon": 1,
+  "embargo_hours": 25,
+  "selected_by": "argmax of mean inner-fold validation pr_auc, pooled over all outer folds",
+  "hyperparameters": {
+    "fusion_dim": 64,
+    "cnn_channels": 64,
+    "kernel_size": 5,
+    "gru_hidden": 64,
+    "num_layers": 1,
+    "dropout": 0.1,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0
+  },
+  "inner_val_pr_auc_mean": 0.7847363042852183,
+  "inner_val_pr_auc_std": 0.11958360000157671,
+  "n_outer": 15,
+  "n_inner": 3,
+  "outer_fold_winners": [
+    {
+      "outer": "Antwerp-b1",
+      "combo": 18,
+      "hp": {
+        "fusion_dim": 64,
+        "cnn_channels": 32,
+        "kernel_size": 3,
+        "gru_hidden": 64,
+        "num_layers": 1,
+        "dropout": 0.1,
+        "learning_rate": 0.001,
+        "weight_decay": 0.0
+      }
+    },
+    {
+      "outer": "Antwerp-b2",
+      "combo": 30,
+      "hp": {
+        "fusion_dim": 64,
+        "cnn_channels": 64,
+        "kernel_size": 5,
+        "gru_hidden": 64,
+        "num_layers": 1,
+        "dropout": 0.1,
+        "learning_rate": 0.001,
+        "weight_decay": 0.0
+      }
+    },
+    {
+      "outer": "Antwerp-b3",
+      "combo": 19,
+      "hp": {
+        "fusion_dim": 64,
+        "cnn_channels": 32,
+        "kernel_size": 3,
+        "gru_hidden": 64,
+        "num_layers": 1,
+        "dropout": 0.1,
+        "learning_rate": 0.0003,
+        "weight_decay": 0.0
+      }
+    },
+    {
+      "outer": "Antwerp-b4",
+      "combo": 22,
+      "hp": {
+        "fusion_dim": 64,
+        "cnn_channels": 32,
+        "kernel_size": 5,
+        "gru_hidden": 64,
+        "num_layers": 1,
+        "dropout": 0.1,
+        "learning_rate": 0.001,
+        "weight_decay": 0.0
+      }
+    },
+    {
+      "outer": "Antwerp-b5",
+      "combo": 20,
+      "hp": {
+        "fusion_dim": 64,
+        "cnn_channels": 32,
+        "kernel_size": 5,
+        "gru_hidden": 32,
+        "num_layers": 1,
+        "dropout": 0.1,
+        "learning_rate": 0.001,
+        "weight_decay": 0.0
+      }
+    },
+    {
+      "outer": "Oslo-b1",
+      "combo": 27,
+      "hp": {
+        "fusion_dim": 64,
+        "cnn_channels": 64,
+        "kernel_size": 3,
+        "gru_hidden": 64,
+        "num_layers": 1,
+        "dropout": 0.1,
+        "learning_rate": 0.0003,
+        "weight_decay": 0.0
+      }
+    },
+    {
+      "outer": "Oslo-b2",
+      "combo": 28,
+      "hp": {
+        "fusion_dim": 64,
+        "cnn_channels": 64,
+        "kernel_size": 5,
+        "gru_hidden": 32,
+        "num_layers": 1,
+        "dropout": 0.1,
+        "learning_rate": 0.001,
+        "weight_decay": 0.0
+      }
+    },
+    {
+      "outer": "Oslo-b3",
+      "combo": 18,
+      "hp": {
+        "fusion_dim": 64,
+        "cnn_channels": 32,
+        "kernel_size": 3,
+        "gru_hidden": 64,
+        "num_layers": 1,
+        "dropout": 0.1,
+        "learning_rate": 0.001,
+        "weight_decay": 0.0
+      }
+    },
+    {
+      "outer": "Oslo-b4",
+      "combo": 31,
+      "hp": {
+        "fusion_dim": 64,
+        "cnn_channels": 64,
+        "kernel_size": 5,
+        "gru_hidden": 64,
+        "num_layers": 1,
+        "dropout": 0.1,
+        "learning_rate": 0.0003,
+        "weight_decay": 0.0
+      }
+    },
+    {
+      "outer": "Oslo-b5",
+      "combo": 2,
+      "hp": {
+        "fusion_dim": 32,
+        "cnn_channels": 32,
+        "kernel_size": 3,
+        "gru_hidden": 64,
+        "num_layers": 1,
+        "dropout": 0.1,
+        "learning_rate": 0.001,
+        "weight_decay": 0.0
+      }
+    },
+    {
+      "outer": "Zagreb-b1",
+      "combo": 22,
+      "hp": {
+        "fusion_dim": 64,
+        "cnn_channels": 32,
+        "kernel_size": 5,
+        "gru_hidden": 64,
+        "num_layers": 1,
+        "dropout": 0.1,
+        "learning_rate": 0.001,
+        "weight_decay": 0.0
+      }
+    },
+    {
+      "outer": "Zagreb-b2",
+      "combo": 19,
+      "hp": {
+        "fusion_dim": 64,
+        "cnn_channels": 32,
+        "kernel_size": 3,
+        "gru_hidden": 64,
+        "num_layers": 1,
+        "dropout": 0.1,
+        "learning_rate": 0.0003,
+        "weight_decay": 0.0
+      }
+    },
+    {
+      "outer": "Zagreb-b3",
+      "combo": 31,
+      "hp": {
+        "fusion_dim": 64,
+        "cnn_channels": 64,
+        "kernel_size": 5,
+        "gru_hidden": 64,
+        "num_layers": 1,
+        "dropout": 0.1,
+        "learning_rate": 0.0003,
+        "weight_decay": 0.0
+      }
+    },
+    {
+      "outer": "Zagreb-b4",
+      "combo": 30,
+      "hp": {
+        "fusion_dim": 64,
+        "cnn_channels": 64,
+        "kernel_size": 5,
+        "gru_hidden": 64,
+        "num_layers": 1,
+        "dropout": 0.1,
+        "learning_rate": 0.001,
+        "weight_decay": 0.0
+      }
+    },
+    {
+      "outer": "Zagreb-b5",
+      "combo": 22,
+      "hp": {
+        "fusion_dim": 64,
+        "cnn_channels": 32,
+        "kernel_size": 5,
+        "gru_hidden": 64,
+        "num_layers": 1,
+        "dropout": 0.1,
+        "learning_rate": 0.001,
+        "weight_decay": 0.0
+      }
+    }
+  ],
+  "hp_agreement": 0.13333333333333333,
+  "nested_test_pr_auc_mean": 0.74705804701059,
+  "nested_test_pr_auc_std": 0.2139395149597901,
+  "nested_test_f1_mean": 0.6348449681403157,
+  "threshold_rule": "f2-max on val, median over the winning combo's inner folds (v1)",
+  "threshold_beta": 2.0,
+  "nested_test_at05_means": {
+    "accuracy": 0.8320051334090652,
+    "precision": 0.6021931794927692,
+    "recall": 0.7666769394903242,
+    "f1": 0.6348449681403157,
+    "f2": 0.6923729562098203
+  },
+  "nested_test_at_threshold_means": {
+    "accuracy": 0.7827722462444977,
+    "precision": 0.5270995606559022,
+    "recall": 0.8089081970286167,
+    "f1": 0.5828623434195882,
+    "f2": 0.6888220444130739
+  },
+  "nested_test_at_threshold_stds": {
+    "accuracy": 0.12478259022456162,
+    "precision": 0.16565235142672502,
+    "recall": 0.296780103824394,
+    "f1": 0.22444464138102202,
+    "f2": 0.2527195968797325
+  },
+  "nested_test_f2_mean": 0.6923729562098203,
+  "nested_test_f2_at_threshold_mean": 0.6888220444130739,
+  "nested_test_f2_at_threshold_std": 0.2527195968797325,
+  "nested_test_f1_at_threshold_mean": 0.5828623434195882,
+  "nested_test_f1_at_threshold_std": 0.22444464138102202,
+  "outer_thresholds": [
+    {
+      "outer": "Antwerp-b1",
+      "logit": -2.047561287879944,
+      "prob": 0.11429903159833375
+    },
+    {
+      "outer": "Antwerp-b2",
+      "logit": -2.3035184144973755,
+      "prob": 0.09083198634569939
+    },
+    {
+      "outer": "Antwerp-b3",
+      "logit": -1.381309688091278,
+      "prob": 0.2007987404687437
+    },
+    {
+      "outer": "Antwerp-b4",
+      "logit": -1.5668596029281616,
+      "prob": 0.1726645411084456
+    },
+    {
+      "outer": "Antwerp-b5",
+      "logit": -1.3396773934364319,
+      "prob": 0.20756311609699607
+    },
+    {
+      "outer": "Oslo-b1",
+      "logit": 0.6002053618431091,
+      "prob": 0.6457032883735833
+    },
+    {
+      "outer": "Oslo-b2",
+      "logit": 0.5942652225494385,
+      "prob": 0.6443431862637269
+    },
+    {
+      "outer": "Oslo-b3",
+      "logit": 0.9238182306289673,
+      "prob": 0.7158194572973151
+    },
+    {
+      "outer": "Oslo-b4",
+      "logit": 0.5540966391563416,
+      "prob": 0.6350855192876468
+    },
+    {
+      "outer": "Oslo-b5",
+      "logit": 0.7073178887367249,
+      "prob": 0.6698082406356746
+    },
+    {
+      "outer": "Zagreb-b1",
+      "logit": -0.6852608323097229,
+      "prob": 0.3350881525910154
+    },
+    {
+      "outer": "Zagreb-b2",
+      "logit": -0.34683310985565186,
+      "prob": 0.41415059376717117
+    },
+    {
+      "outer": "Zagreb-b3",
+      "logit": -0.3170606642961502,
+      "prob": 0.421392253031387
+    },
+    {
+      "outer": "Zagreb-b4",
+      "logit": -1.1663069128990173,
+      "prob": 0.2375231757274097
+    },
+    {
+      "outer": "Zagreb-b5",
+      "logit": -1.3694894313812256,
+      "prob": 0.20270234899744
+    }
+  ],
+  "threshold_prob_median": 0.3350881525910154,
+  "threshold_prob_min": 0.09083198634569939,
+  "threshold_prob_max": 0.7158194572973151,
+  "nested_test_note": "Unbiased estimate of the tuning+training PROCEDURE, not of the single 'hyperparameters' set above. Different outer folds may select different hyperparameters; see outer_fold_winners and hp_agreement."
+}

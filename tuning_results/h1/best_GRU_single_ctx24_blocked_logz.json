@@ -1,0 +1,303 @@
+{
+  "schema": 5,
+  "arch": "GRU",
+  "experiment": "single",
+  "protocol": "blocked",
+  "context_size": 24,
+  "scaling": "logz",
+  "overlap": 0.5,
+  "horizon": 1,
+  "embargo_hours": 25,
+  "selected_by": "argmax of mean inner-fold validation pr_auc, pooled over all outer folds",
+  "hyperparameters": {
+    "hidden_size": 128,
+    "num_layers": 4,
+    "dropout": 0.1,
+    "learning_rate": 0.0003,
+    "weight_decay": 0.0
+  },
+  "inner_val_pr_auc_mean": 0.7923655574170652,
+  "inner_val_pr_auc_std": 0.12268001751539671,
+  "n_outer": 15,
+  "n_inner": 3,
+  "outer_fold_winners": [
+    {
+      "outer": "Antwerp-b1",
+      "combo": 24,
+      "hp": {
+        "hidden_size": 128,
+        "num_layers": 1,
+        "dropout": 0.1,
+        "learning_rate": 0.001,
+        "weight_decay": 0.0
+      }
+    },
+    {
+      "outer": "Antwerp-b2",
+      "combo": 9,
+      "hp": {
+        "hidden_size": 32,
+        "num_layers": 1,
+        "dropout": 0.1,
+        "learning_rate": 0.0003,
+        "weight_decay": 0.0
+      }
+    },
+    {
+      "outer": "Antwerp-b3",
+      "combo": 23,
+      "hp": {
+        "hidden_size": 64,
+        "num_layers": 4,
+        "dropout": 0.1,
+        "learning_rate": 0.0003,
+        "weight_decay": 0.0
+      }
+    },
+    {
+      "outer": "Antwerp-b4",
+      "combo": 31,
+      "hp": {
+        "hidden_size": 128,
+        "num_layers": 4,
+        "dropout": 0.1,
+        "learning_rate": 0.0003,
+        "weight_decay": 0.0
+      }
+    },
+    {
+      "outer": "Antwerp-b5",
+      "combo": 31,
+      "hp": {
+        "hidden_size": 128,
+        "num_layers": 4,
+        "dropout": 0.1,
+        "learning_rate": 0.0003,
+        "weight_decay": 0.0
+      }
+    },
+    {
+      "outer": "Oslo-b1",
+      "combo": 12,
+      "hp": {
+        "hidden_size": 32,
+        "num_layers": 3,
+        "dropout": 0.1,
+        "learning_rate": 0.001,
+        "weight_decay": 0.0
+      }
+    },
+    {
+      "outer": "Oslo-b2",
+      "combo": 22,
+      "hp": {
+        "hidden_size": 64,
+        "num_layers": 4,
+        "dropout": 0.1,
+        "learning_rate": 0.001,
+        "weight_decay": 0.0
+      }
+    },
+    {
+      "outer": "Oslo-b3",
+      "combo": 30,
+      "hp": {
+        "hidden_size": 128,
+        "num_layers": 4,
+        "dropout": 0.1,
+        "learning_rate": 0.001,
+        "weight_decay": 0.0
+      }
+    },
+    {
+      "outer": "Oslo-b4",
+      "combo": 14,
+      "hp": {
+        "hidden_size": 32,
+        "num_layers": 4,
+        "dropout": 0.1,
+        "learning_rate": 0.001,
+        "weight_decay": 0.0
+      }
+    },
+    {
+      "outer": "Oslo-b5",
+      "combo": 31,
+      "hp": {
+        "hidden_size": 128,
+        "num_layers": 4,
+        "dropout": 0.1,
+        "learning_rate": 0.0003,
+        "weight_decay": 0.0
+      }
+    },
+    {
+      "outer": "Zagreb-b1",
+      "combo": 26,
+      "hp": {
+        "hidden_size": 128,
+        "num_layers": 2,
+        "dropout": 0.1,
+        "learning_rate": 0.001,
+        "weight_decay": 0.0
+      }
+    },
+    {
+      "outer": "Zagreb-b2",
+      "combo": 24,
+      "hp": {
+        "hidden_size": 128,
+        "num_layers": 1,
+        "dropout": 0.1,
+        "learning_rate": 0.001,
+        "weight_decay": 0.0
+      }
+    },
+    {
+      "outer": "Zagreb-b3",
+      "combo": 26,
+      "hp": {
+        "hidden_size": 128,
+        "num_layers": 2,
+        "dropout": 0.1,
+        "learning_rate": 0.001,
+        "weight_decay": 0.0
+      }
+    },
+    {
+      "outer": "Zagreb-b4",
+      "combo": 14,
+      "hp": {
+        "hidden_size": 32,
+        "num_layers": 4,
+        "dropout": 0.1,
+        "learning_rate": 0.001,
+        "weight_decay": 0.0
+      }
+    },
+    {
+      "outer": "Zagreb-b5",
+      "combo": 24,
+      "hp": {
+        "hidden_size": 128,
+        "num_layers": 1,
+        "dropout": 0.1,
+        "learning_rate": 0.001,
+        "weight_decay": 0.0
+      }
+    }
+  ],
+  "hp_agreement": 0.2,
+  "nested_test_pr_auc_mean": 0.7419358730636243,
+  "nested_test_pr_auc_std": 0.22893666540024835,
+  "nested_test_f1_mean": 0.6209829897694461,
+  "threshold_rule": "f2-max on val, median over the winning combo's inner folds (v1)",
+  "threshold_beta": 2.0,
+  "nested_test_at05_means": {
+    "accuracy": 0.8161056820187921,
+    "precision": 0.5735488321324844,
+    "recall": 0.7787130551153651,
+    "f1": 0.6209829897694461,
+    "f2": 0.691893601002469
+  },
+  "nested_test_at_threshold_means": {
+    "accuracy": 0.8115640775167576,
+    "precision": 0.5662005385479232,
+    "recall": 0.8007755747701559,
+    "f1": 0.6232869461007451,
+    "f2": 0.7081360362706242
+  },
+  "nested_test_at_threshold_stds": {
+    "accuracy": 0.13154493495362082,
+    "precision": 0.22842212781586022,
+    "recall": 0.28531823923914584,
+    "f1": 0.2319057859669708,
+    "f2": 0.25282042212901706
+  },
+  "nested_test_f2_mean": 0.691893601002469,
+  "nested_test_f2_at_threshold_mean": 0.7081360362706242,
+  "nested_test_f2_at_threshold_std": 0.25282042212901706,
+  "nested_test_f1_at_threshold_mean": 0.6232869461007451,
+  "nested_test_f1_at_threshold_std": 0.2319057859669708,
+  "outer_thresholds": [
+    {
+      "outer": "Antwerp-b1",
+      "logit": -1.936983585357666,
+      "prob": 0.12597961562498047
+    },
+    {
+      "outer": "Antwerp-b2",
+      "logit": -1.0518469214439392,
+      "prob": 0.25887059895148024
+    },
+    {
+      "outer": "Antwerp-b3",
+      "logit": -1.1252265572547913,
+      "prob": 0.24504309830390936
+    },
+    {
+      "outer": "Antwerp-b4",
+      "logit": -2.5565454959869385,
+      "prob": 0.07198798191510257
+    },
+    {
+      "outer": "Antwerp-b5",
+      "logit": -0.9464635252952576,
+      "prob": 0.2795965914473673
+    },
+    {
+      "outer": "Oslo-b1",
+      "logit": 2.13715398311615,
+      "prob": 0.8944622492660116
+    },
+    {
+      "outer": "Oslo-b2",
+      "logit": 2.230125308036804,
+      "prob": 0.9029223432667675
+    },
+    {
+      "outer": "Oslo-b3",
+      "logit": 1.4870203733444214,
+      "prob": 0.8156306256706128
+    },
+    {
+      "outer": "Oslo-b4",
+      "logit": 1.8900586366653442,
+      "prob": 0.8687622161318931
+    },
+    {
+      "outer": "Oslo-b5",
+      "logit": 1.7780705094337463,
+      "prob": 0.8554584493622476
+    },
+    {
+      "outer": "Zagreb-b1",
+      "logit": -0.7391404807567596,
+      "prob": 0.32319212554107024
+    },
+    {
+      "outer": "Zagreb-b2",
+      "logit": -1.1593762636184692,
+      "prob": 0.23878063978206046
+    },
+    {
+      "outer": "Zagreb-b3",
+      "logit": 0.07181664556264877,
+      "prob": 0.5179464486242791
+    },
+    {
+      "outer": "Zagreb-b4",
+      "logit": -1.281827449798584,
+      "prob": 0.217239311758674
+    },
+    {
+      "outer": "Zagreb-b5",
+      "logit": -0.35147345066070557,
+      "prob": 0.4130251587966079
+    }
+  ],
+  "threshold_prob_median": 0.32319212554107024,
+  "threshold_prob_min": 0.07198798191510257,
+  "threshold_prob_max": 0.9029223432667675,
+  "nested_test_note": "Unbiased estimate of the tuning+training PROCEDURE, not of the single 'hyperparameters' set above. Different outer folds may select different hyperparameters; see outer_fold_winners and hp_agreement."
+}

@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+
+# Dataset (download with download_data.py) and its parse cache
+senseurcity_data_v03/
+.parse_cache/
+
+# Per-training artifacts a sweep writes (not shipped: weights, inner-fold logits, fold files)
+tuning_results/*/nested*_inner/
+tuning_results/*/nested*_models/
+tuning_results/*/nested*_folds/
+tuning_results/*/smoke/
+*.log
+
+# LaTeX build products
+figures/pipeline/*.aux
+figures/pipeline/*.log
+figures/pipeline/*.pdf

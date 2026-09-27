@@ -1,0 +1,368 @@
+{
+  "schema": 5,
+  "arch": "TCN",
+  "experiment": "single",
+  "protocol": "blocked",
+  "context_size": 24,
+  "scaling": "logz",
+  "overlap": 0.5,
+  "horizon": 12,
+  "embargo_hours": 36,
+  "selected_by": "argmax of mean inner-fold validation pr_auc, pooled over all outer folds",
+  "hyperparameters": {
+    "tcn_channels": [
+      64,
+      64,
+      64
+    ],
+    "kernel_size": 3,
+    "dropout": 0.3,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0
+  },
+  "inner_val_pr_auc_mean": 0.7829688761330693,
+  "inner_val_pr_auc_std": 0.09642610357447645,
+  "n_outer": 15,
+  "n_inner": 3,
+  "outer_fold_winners": [
+    {
+      "outer": "Antwerp-b1",
+      "combo": 6,
+      "hp": {
+        "tcn_channels": [
+          32,
+          32
+        ],
+        "kernel_size": 3,
+        "dropout": 0.3,
+        "learning_rate": 0.001,
+        "weight_decay": 0.0
+      }
+    },
+    {
+      "outer": "Antwerp-b2",
+      "combo": 20,
+      "hp": {
+        "tcn_channels": [
+          64,
+          64,
+          64
+        ],
+        "kernel_size": 2,
+        "dropout": 0.3,
+        "learning_rate": 0.001,
+        "weight_decay": 0.0
+      }
+    },
+    {
+      "outer": "Antwerp-b3",
+      "combo": 18,
+      "hp": {
+        "tcn_channels": [
+          64,
+          64
+        ],
+        "kernel_size": 3,
+        "dropout": 0.3,
+        "learning_rate": 0.001,
+        "weight_decay": 0.0
+      }
+    },
+    {
+      "outer": "Antwerp-b4",
+      "combo": 2,
+      "hp": {
+        "tcn_channels": [
+          16,
+          16
+        ],
+        "kernel_size": 3,
+        "dropout": 0.3,
+        "learning_rate": 0.001,
+        "weight_decay": 0.0
+      }
+    },
+    {
+      "outer": "Antwerp-b5",
+      "combo": 2,
+      "hp": {
+        "tcn_channels": [
+          16,
+          16
+        ],
+        "kernel_size": 3,
+        "dropout": 0.3,
+        "learning_rate": 0.001,
+        "weight_decay": 0.0
+      }
+    },
+    {
+      "outer": "Oslo-b1",
+      "combo": 15,
+      "hp": {
+        "tcn_channels": [
+          32,
+          32,
+          32
+        ],
+        "kernel_size": 3,
+        "dropout": 0.3,
+        "learning_rate": 0.0003,
+        "weight_decay": 0.0
+      }
+    },
+    {
+      "outer": "Oslo-b2",
+      "combo": 27,
+      "hp": {
+        "tcn_channels": [
+          32,
+          32,
+          32,
+          32
+        ],
+        "kernel_size": 3,
+        "dropout": 0.3,
+        "learning_rate": 0.0003,
+        "weight_decay": 0.0
+      }
+    },
+    {
+      "outer": "Oslo-b3",
+      "combo": 27,
+      "hp": {
+        "tcn_channels": [
+          32,
+          32,
+          32,
+          32
+        ],
+        "kernel_size": 3,
+        "dropout": 0.3,
+        "learning_rate": 0.0003,
+        "weight_decay": 0.0
+      }
+    },
+    {
+      "outer": "Oslo-b4",
+      "combo": 14,
+      "hp": {
+        "tcn_channels": [
+          32,
+          32,
+          32
+        ],
+        "kernel_size": 3,
+        "dropout": 0.3,
+        "learning_rate": 0.001,
+        "weight_decay": 0.0
+      }
+    },
+    {
+      "outer": "Oslo-b5",
+      "combo": 22,
+      "hp": {
+        "tcn_channels": [
+          64,
+          64,
+          64
+        ],
+        "kernel_size": 3,
+        "dropout": 0.3,
+        "learning_rate": 0.001,
+        "weight_decay": 0.0
+      }
+    },
+    {
+      "outer": "Zagreb-b1",
+      "combo": 30,
+      "hp": {
+        "tcn_channels": [
+          64,
+          64,
+          64,
+          64
+        ],
+        "kernel_size": 3,
+        "dropout": 0.3,
+        "learning_rate": 0.001,
+        "weight_decay": 0.0
+      }
+    },
+    {
+      "outer": "Zagreb-b2",
+      "combo": 22,
+      "hp": {
+        "tcn_channels": [
+          64,
+          64,
+          64
+        ],
+        "kernel_size": 3,
+        "dropout": 0.3,
+        "learning_rate": 0.001,
+        "weight_decay": 0.0
+      }
+    },
+    {
+      "outer": "Zagreb-b3",
+      "combo": 10,
+      "hp": {
+        "tcn_channels": [
+          16,
+          16,
+          16
+        ],
+        "kernel_size": 3,
+        "dropout": 0.3,
+        "learning_rate": 0.001,
+        "weight_decay": 0.0
+      }
+    },
+    {
+      "outer": "Zagreb-b4",
+      "combo": 26,
+      "hp": {
+        "tcn_channels": [
+          32,
+          32,
+          32,
+          32
+        ],
+        "kernel_size": 3,
+        "dropout": 0.3,
+        "learning_rate": 0.001,
+        "weight_decay": 0.0
+      }
+    },
+    {
+      "outer": "Zagreb-b5",
+      "combo": 29,
+      "hp": {
+        "tcn_channels": [
+          64,
+          64,
+          64,
+          64
+        ],
+        "kernel_size": 2,
+        "dropout": 0.3,
+        "learning_rate": 0.0003,
+        "weight_decay": 0.0
+      }
+    }
+  ],
+  "hp_agreement": 0.13333333333333333,
+  "nested_test_pr_auc_mean": 0.7649400562371469,
+  "nested_test_pr_auc_std": 0.1784562732869526,
+  "nested_test_f1_mean": 0.6437672665023886,
+  "threshold_rule": "f2-max on val, median over the winning combo's inner folds (v1)",
+  "threshold_beta": 2.0,
+  "nested_test_at05_means": {
+    "accuracy": 0.839078349100314,
+    "precision": 0.5822976464577357,
+    "recall": 0.7883045940808363,
+    "f1": 0.6437672665023886,
+    "f2": 0.7114338479636866
+  },
+  "nested_test_at_threshold_means": {
+    "accuracy": 0.806986120433561,
+    "precision": 0.513452371450727,
+    "recall": 0.7878298014913694,
+    "f1": 0.5938364489741306,
+    "f2": 0.691130082535802
+  },
+  "nested_test_at_threshold_stds": {
+    "accuracy": 0.11471466138315653,
+    "precision": 0.1922587590058654,
+    "recall": 0.3035096373403114,
+    "f1": 0.2322353194575933,
+    "f2": 0.2641726642117559
+  },
+  "nested_test_f2_mean": 0.7114338479636866,
+  "nested_test_f2_at_threshold_mean": 0.691130082535802,
+  "nested_test_f2_at_threshold_std": 0.2641726642117559,
+  "nested_test_f1_at_threshold_mean": 0.5938364489741306,
+  "nested_test_f1_at_threshold_std": 0.2322353194575933,
+  "outer_thresholds": [
+    {
+      "outer": "Antwerp-b1",
+      "logit": -1.8284233212471008,
+      "prob": 0.13842620762871316
+    },
+    {
+      "outer": "Antwerp-b2",
+      "logit": -1.6223424673080444,
+      "prob": 0.16488206862506172
+    },
+    {
+      "outer": "Antwerp-b3",
+      "logit": -1.3802202343940735,
+      "prob": 0.20097363147090178
+    },
+    {
+      "outer": "Antwerp-b4",
+      "logit": -0.9599778652191162,
+      "prob": 0.27688262664939756
+    },
+    {
+      "outer": "Antwerp-b5",
+      "logit": -0.9689411818981171,
+      "prob": 0.27509159741428774
+    },
+    {
+      "outer": "Oslo-b1",
+      "logit": 1.8032748103141785,
+      "prob": 0.8585471082375166
+    },
+    {
+      "outer": "Oslo-b2",
+      "logit": 1.661275029182434,
+      "prob": 0.8404090863114695
+    },
+    {
+      "outer": "Oslo-b3",
+      "logit": 1.3895599842071533,
+      "prob": 0.8005219878454083
+    },
+    {
+      "outer": "Oslo-b4",
+      "logit": 1.0946316123008728,
+      "prob": 0.7492528806576231
+    },
+    {
+      "outer": "Oslo-b5",
+      "logit": 1.2061593532562256,
+      "prob": 0.7696186854957704
+    },
+    {
+      "outer": "Zagreb-b1",
+      "logit": -0.35229820013046265,
+      "prob": 0.4128252247010753
+    },
+    {
+      "outer": "Zagreb-b2",
+      "logit": -1.0135372877120972,
+      "prob": 0.2662881687072694
+    },
+    {
+      "outer": "Zagreb-b3",
+      "logit": -0.9170536994934082,
+      "prob": 0.2855586034974015
+    },
+    {
+      "outer": "Zagreb-b4",
+      "logit": -1.1694788932800293,
+      "prob": 0.23694918967828313
+    },
+    {
+      "outer": "Zagreb-b5",
+      "logit": -0.6486098766326904,
+      "prob": 0.3433028667884087
+    }
+  ],
+  "threshold_prob_median": 0.2855586034974015,
+  "threshold_prob_min": 0.13842620762871316,
+  "threshold_prob_max": 0.8585471082375166,
+  "nested_test_note": "Unbiased estimate of the tuning+training PROCEDURE, not of the single 'hyperparameters' set above. Different outer folds may select different hyperparameters; see outer_fold_winners and hp_agreement."
+}
