@@ -320,8 +320,10 @@ def fig_prevalence(panels, out_dir, dpi, formats, experiment) -> None:
     axes = axes[0]
     markers = {"GRU": "o", "TCN": "s", "FUSION": "^"}
 
+    # The panels share one x-axis, so the limit must cover every panel's folds;
+    # setting it per panel lets the last panel's range clip the others.
+    lim = [1.0, 0.0]
     for ax, p in zip(axes, panels):
-        lim = [1.0, 0.0]
         for a in ARCHS:
             for f, rec in p["outer"][a].items():
                 x = rec["test"].get("pos_rate", np.nan)
@@ -335,13 +337,13 @@ def fig_prevalence(panels, out_dir, dpi, formats, experiment) -> None:
         # Average precision's chance level IS the prevalence, so this line is the floor.
         ax.plot([0, 1], [0, 1], color="#999999", linewidth=0.7, linestyle="-.",
                 zorder=1)
-        pad = 0.04
-        ax.set_xlim(max(0.0, lim[0] - pad), min(1.0, lim[1] + pad))
         ax.set_title(panel_title(p["horizon"]))
         ax.set_xlabel("Prevalence")
         ax.grid(True, alpha=0.3)
         ax.set_axisbelow(True)
 
+    pad = 0.04
+    axes[0].set_xlim(max(0.0, lim[0] - pad), min(1.0, lim[1] + pad))
     axes[0].set_ylabel("Test average precision")
     handles = [Line2D([], [], marker=markers[a], linestyle="none", color="#555555",
                       markersize=3.5, label=a) for a in ARCHS]
