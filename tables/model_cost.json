@@ -1,0 +1,297 @@
+{
+ "single-h1-GRU": {
+  "hp": {
+   "hidden_size": 128,
+   "num_layers": 4,
+   "dropout": 0.1,
+   "learning_rate": 0.0003,
+   "weight_decay": 0.0
+  },
+  "params": 349185,
+  "macs": 8303744,
+  "fp32_bytes": 1396740,
+  "int8_bytes": 349185,
+  "act_bytes": 4096
+ },
+ "single-h1-TCN": {
+  "hp": {
+   "tcn_channels": [
+    32,
+    32,
+    32
+   ],
+   "kernel_size": 3,
+   "dropout": 0.3,
+   "learning_rate": 0.001,
+   "weight_decay": 0.0
+  },
+  "params": 16449,
+  "macs": 384032,
+  "fp32_bytes": 65796,
+  "int8_bytes": 16449,
+  "act_bytes": 9216
+ },
+ "single-h1-FUSION": {
+  "hp": {
+   "fusion_dim": 64,
+   "cnn_channels": 64,
+   "kernel_size": 5,
+   "gru_hidden": 64,
+   "num_layers": 1,
+   "dropout": 0.1,
+   "learning_rate": 0.001,
+   "weight_decay": 0.0
+  },
+  "params": 31937,
+  "macs": 372800,
+  "fp32_bytes": 127748,
+  "int8_bytes": 31937,
+  "act_bytes": 7424
+ },
+ "single-h12-GRU": {
+  "hp": {
+   "hidden_size": 32,
+   "num_layers": 4,
+   "dropout": 0.1,
+   "learning_rate": 0.001,
+   "weight_decay": 0.0
+  },
+  "params": 22785,
+  "macs": 527648,
+  "fp32_bytes": 91140,
+  "int8_bytes": 22785,
+  "act_bytes": 1024
+ },
+ "single-h12-TCN": {
+  "hp": {
+   "tcn_channels": [
+    64,
+    64,
+    64
+   ],
+   "kernel_size": 3,
+   "dropout": 0.3,
+   "learning_rate": 0.001,
+   "weight_decay": 0.0
+  },
+  "params": 63617,
+  "macs": 1505344,
+  "fp32_bytes": 254468,
+  "int8_bytes": 63617,
+  "act_bytes": 18432
+ },
+ "single-h12-FUSION": {
+  "hp": {
+   "fusion_dim": 64,
+   "cnn_channels": 32,
+   "kernel_size": 3,
+   "gru_hidden": 32,
+   "num_layers": 1,
+   "dropout": 0.1,
+   "learning_rate": 0.001,
+   "weight_decay": 0.0
+  },
+  "params": 16801,
+  "macs": 109120,
+  "fp32_bytes": 67204,
+  "int8_bytes": 16801,
+  "act_bytes": 4096
+ },
+ "single-h24-GRU": {
+  "hp": {
+   "hidden_size": 32,
+   "num_layers": 4,
+   "dropout": 0.1,
+   "learning_rate": 0.0003,
+   "weight_decay": 0.0
+  },
+  "params": 22785,
+  "macs": 527648,
+  "fp32_bytes": 91140,
+  "int8_bytes": 22785,
+  "act_bytes": 1024
+ },
+ "single-h24-TCN": {
+  "hp": {
+   "tcn_channels": [
+    64,
+    64,
+    64
+   ],
+   "kernel_size": 2,
+   "dropout": 0.3,
+   "learning_rate": 0.001,
+   "weight_decay": 0.0
+  },
+  "params": 42817,
+  "macs": 1006144,
+  "fp32_bytes": 171268,
+  "int8_bytes": 42817,
+  "act_bytes": 18432
+ },
+ "single-h24-FUSION": {
+  "hp": {
+   "fusion_dim": 32,
+   "cnn_channels": 64,
+   "kernel_size": 3,
+   "gru_hidden": 64,
+   "num_layers": 1,
+   "dropout": 0.1,
+   "learning_rate": 0.001,
+   "weight_decay": 0.0
+  },
+  "params": 20929,
+  "macs": 347168,
+  "fp32_bytes": 83716,
+  "int8_bytes": 20929,
+  "act_bytes": 7040
+ },
+ "multi-h1-GRU": {
+  "hp": {
+   "hidden_size": 128,
+   "num_layers": 2,
+   "dropout": 0.1,
+   "learning_rate": 0.001,
+   "weight_decay": 0.0
+  },
+  "params": 151041,
+  "macs": 3585152,
+  "fp32_bytes": 604164,
+  "int8_bytes": 151041,
+  "act_bytes": 2048
+ },
+ "multi-h1-TCN": {
+  "hp": {
+   "tcn_channels": [
+    32,
+    32,
+    32,
+    32
+   ],
+   "kernel_size": 2,
+   "dropout": 0.3,
+   "learning_rate": 0.001,
+   "weight_decay": 0.0
+  },
+  "params": 15393,
+  "macs": 355616,
+  "fp32_bytes": 61572,
+  "int8_bytes": 15393,
+  "act_bytes": 9216
+ },
+ "multi-h1-FUSION": {
+  "hp": {
+   "fusion_dim": 32,
+   "cnn_channels": 64,
+   "kernel_size": 5,
+   "gru_hidden": 64,
+   "num_layers": 1,
+   "dropout": 0.1,
+   "learning_rate": 0.001,
+   "weight_decay": 0.0
+  },
+  "params": 21569,
+  "macs": 362528,
+  "fp32_bytes": 86276,
+  "int8_bytes": 21569,
+  "act_bytes": 7040
+ },
+ "multi-h12-GRU": {
+  "hp": {
+   "hidden_size": 16,
+   "num_layers": 2,
+   "dropout": 0.1,
+   "learning_rate": 0.001,
+   "weight_decay": 0.0
+  },
+  "params": 2753,
+  "macs": 61072,
+  "fp32_bytes": 11012,
+  "int8_bytes": 2753,
+  "act_bytes": 256
+ },
+ "multi-h12-TCN": {
+  "hp": {
+   "tcn_channels": [
+    64,
+    64,
+    64
+   ],
+   "kernel_size": 2,
+   "dropout": 0.3,
+   "learning_rate": 0.001,
+   "weight_decay": 0.0
+  },
+  "params": 42817,
+  "macs": 1006144,
+  "fp32_bytes": 171268,
+  "int8_bytes": 42817,
+  "act_bytes": 18432
+ },
+ "multi-h12-FUSION": {
+  "hp": {
+   "fusion_dim": 64,
+   "cnn_channels": 64,
+   "kernel_size": 5,
+   "gru_hidden": 32,
+   "num_layers": 1,
+   "dropout": 0.1,
+   "learning_rate": 0.001,
+   "weight_decay": 0.0
+  },
+  "params": 20001,
+  "macs": 138048,
+  "fp32_bytes": 80004,
+  "int8_bytes": 20001,
+  "act_bytes": 7168
+ },
+ "multi-h24-GRU": {
+  "hp": {
+   "hidden_size": 32,
+   "num_layers": 2,
+   "dropout": 0.1,
+   "learning_rate": 0.001,
+   "weight_decay": 0.0
+  },
+  "params": 10113,
+  "macs": 232736,
+  "fp32_bytes": 40452,
+  "int8_bytes": 10113,
+  "act_bytes": 512
+ },
+ "multi-h24-TCN": {
+  "hp": {
+   "tcn_channels": [
+    64,
+    64,
+    64
+   ],
+   "kernel_size": 2,
+   "dropout": 0.3,
+   "learning_rate": 0.001,
+   "weight_decay": 0.0
+  },
+  "params": 42817,
+  "macs": 1006144,
+  "fp32_bytes": 171268,
+  "int8_bytes": 42817,
+  "act_bytes": 18432
+ },
+ "multi-h24-FUSION": {
+  "hp": {
+   "fusion_dim": 32,
+   "cnn_channels": 32,
+   "kernel_size": 5,
+   "gru_hidden": 64,
+   "num_layers": 1,
+   "dropout": 0.1,
+   "learning_rate": 0.001,
+   "weight_decay": 0.0
+  },
+  "params": 19713,
+  "macs": 342304,
+  "fp32_bytes": 78852,
+  "int8_bytes": 19713,
+  "act_bytes": 3968
+ }
+}

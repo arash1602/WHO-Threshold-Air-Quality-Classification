@@ -1,0 +1,109 @@
+1. Logistic regression coefficient on optical PM10 (standardized)
+   h= 1 trained on Antwerp+Zagreb: -3.289   trained within Oslo (5 folds): +0.259 +0.139 +0.721 +0.226 +0.209   positive 5/5   | held-out Antwerp -1.855, held-out Zagreb -1.937
+   h=12 trained on Antwerp+Zagreb: -1.070   trained within Oslo (5 folds): +0.107 +0.074 +0.428 +0.463 +0.359   positive 5/5   | held-out Antwerp -0.984, held-out Zagreb -1.785
+   h=24 trained on Antwerp+Zagreb: -0.243   trained within Oslo (5 folds): +0.322 +0.530 -0.044 -0.118 -0.191   positive 2/5   | held-out Antwerp -1.452, held-out Zagreb -0.204
+
+Antwerp
+  h= 1 n=14014 positives=4411 PM10-only=7 (0.2%)  prevalence 0.315 -> 0.314 without PM10-only
+     LR      AP 0.660 -> 0.661  (lift 2.10 -> 2.10)  AUC 0.806 -> 0.807  | AUC PM2.5-driven 0.807  PM10-only nan
+     LinCal  AP 0.681 -> 0.681  (lift 2.16 -> 2.17)  AUC 0.822 -> 0.822  | AUC PM2.5-driven 0.822  PM10-only nan
+     GBT     AP 0.626 -> 0.626  (lift 1.99 -> 1.99)  AUC 0.808 -> 0.809  | AUC PM2.5-driven 0.809  PM10-only nan
+     GRU     AP 0.743 -> 0.743  (lift 2.36 -> 2.36)  AUC 0.854 -> 0.854  | AUC PM2.5-driven 0.854  PM10-only nan
+     TCN     AP 0.797 -> 0.797  (lift 2.53 -> 2.54)  AUC 0.878 -> 0.878  | AUC PM2.5-driven 0.878  PM10-only nan
+     FUSION  AP 0.738 -> 0.738  (lift 2.34 -> 2.35)  AUC 0.843 -> 0.844  | AUC PM2.5-driven 0.844  PM10-only nan
+     gap GBT-LR  AP -0.035 -> -0.035   AUC +0.003 -> +0.002
+     gap GRU-LR  AP +0.082 -> +0.082   AUC +0.048 -> +0.048
+     gap TCN-LR  AP +0.137 -> +0.137   AUC +0.072 -> +0.072
+     gap FUSION-LR  AP +0.078 -> +0.078   AUC +0.038 -> +0.038
+  h=12 n=13953 positives=4402 PM10-only=8 (0.2%)  prevalence 0.315 -> 0.315 without PM10-only
+     LR      AP 0.619 -> 0.619  (lift 1.96 -> 1.96)  AUC 0.800 -> 0.801  | AUC PM2.5-driven 0.801  PM10-only nan
+     LinCal  AP 0.620 -> 0.620  (lift 1.97 -> 1.97)  AUC 0.805 -> 0.805  | AUC PM2.5-driven 0.805  PM10-only nan
+     GBT     AP 0.653 -> 0.653  (lift 2.07 -> 2.07)  AUC 0.813 -> 0.814  | AUC PM2.5-driven 0.814  PM10-only nan
+     GRU     AP 0.729 -> 0.730  (lift 2.31 -> 2.32)  AUC 0.849 -> 0.850  | AUC PM2.5-driven 0.850  PM10-only nan
+     TCN     AP 0.734 -> 0.735  (lift 2.33 -> 2.33)  AUC 0.839 -> 0.839  | AUC PM2.5-driven 0.839  PM10-only nan
+     FUSION  AP 0.702 -> 0.702  (lift 2.22 -> 2.23)  AUC 0.836 -> 0.837  | AUC PM2.5-driven 0.837  PM10-only nan
+     gap GBT-LR  AP +0.034 -> +0.034   AUC +0.013 -> +0.013
+     gap GRU-LR  AP +0.110 -> +0.110   AUC +0.049 -> +0.049
+     gap TCN-LR  AP +0.116 -> +0.116   AUC +0.039 -> +0.039
+     gap FUSION-LR  AP +0.083 -> +0.083   AUC +0.036 -> +0.036
+  h=24 n=13883 positives=4454 PM10-only=8 (0.2%)  prevalence 0.321 -> 0.320 without PM10-only
+     LR      AP 0.535 -> 0.536  (lift 1.67 -> 1.67)  AUC 0.747 -> 0.748  | AUC PM2.5-driven 0.748  PM10-only nan
+     LinCal  AP 0.513 -> 0.513  (lift 1.60 -> 1.60)  AUC 0.719 -> 0.720  | AUC PM2.5-driven 0.720  PM10-only nan
+     GBT     AP 0.571 -> 0.571  (lift 1.78 -> 1.78)  AUC 0.754 -> 0.754  | AUC PM2.5-driven 0.754  PM10-only nan
+     GRU     AP 0.630 -> 0.631  (lift 1.96 -> 1.97)  AUC 0.780 -> 0.781  | AUC PM2.5-driven 0.781  PM10-only nan
+     TCN     AP 0.631 -> 0.632  (lift 1.97 -> 1.97)  AUC 0.772 -> 0.773  | AUC PM2.5-driven 0.773  PM10-only nan
+     FUSION  AP 0.617 -> 0.618  (lift 1.92 -> 1.93)  AUC 0.778 -> 0.779  | AUC PM2.5-driven 0.779  PM10-only nan
+     gap GBT-LR  AP +0.035 -> +0.035   AUC +0.007 -> +0.006
+     gap GRU-LR  AP +0.095 -> +0.095   AUC +0.033 -> +0.033
+     gap TCN-LR  AP +0.096 -> +0.096   AUC +0.025 -> +0.025
+     gap FUSION-LR  AP +0.082 -> +0.082   AUC +0.031 -> +0.031
+
+Oslo
+  h= 1 n=5777 positives=361 PM10-only=99 (27.4%)  prevalence 0.062 -> 0.046 without PM10-only
+     LR      AP 0.096 -> 0.107  (lift 1.53 -> 2.32)  AUC 0.501 -> 0.641  | AUC PM2.5-driven 0.641  PM10-only 0.131
+     LinCal  AP 0.109 -> 0.107  (lift 1.75 -> 2.31)  AUC 0.679 -> 0.741  | AUC PM2.5-driven 0.741  PM10-only 0.515
+     GBT     AP 0.433 -> 0.517  (lift 6.92 -> 11.21)  AUC 0.891 -> 0.951  | AUC PM2.5-driven 0.951  PM10-only 0.732
+     GRU     AP 0.329 -> 0.406  (lift 5.27 -> 8.81)  AUC 0.789 -> 0.920  | AUC PM2.5-driven 0.920  PM10-only 0.442
+     TCN     AP 0.295 -> 0.359  (lift 4.72 -> 7.78)  AUC 0.802 -> 0.913  | AUC PM2.5-driven 0.913  PM10-only 0.507
+     FUSION  AP 0.333 -> 0.409  (lift 5.32 -> 8.86)  AUC 0.817 -> 0.934  | AUC PM2.5-driven 0.934  PM10-only 0.507
+     gap GBT-LR  AP +0.337 -> +0.410   AUC +0.390 -> +0.310
+     gap GRU-LR  AP +0.234 -> +0.300   AUC +0.288 -> +0.279
+     gap TCN-LR  AP +0.199 -> +0.252   AUC +0.300 -> +0.272
+     gap FUSION-LR  AP +0.237 -> +0.302   AUC +0.316 -> +0.293
+  h=12 n=5730 positives=361 PM10-only=102 (28.3%)  prevalence 0.063 -> 0.046 without PM10-only
+     LR      AP 0.131 -> 0.135  (lift 2.08 -> 2.93)  AUC 0.735 -> 0.814  | AUC PM2.5-driven 0.814  PM10-only 0.536
+     LinCal  AP 0.142 -> 0.135  (lift 2.25 -> 2.92)  AUC 0.773 -> 0.823  | AUC PM2.5-driven 0.823  PM10-only 0.648
+     GBT     AP 0.366 -> 0.422  (lift 5.80 -> 9.18)  AUC 0.876 -> 0.937  | AUC PM2.5-driven 0.937  PM10-only 0.722
+     GRU     AP 0.299 -> 0.364  (lift 4.74 -> 7.92)  AUC 0.803 -> 0.911  | AUC PM2.5-driven 0.911  PM10-only 0.529
+     TCN     AP 0.267 -> 0.327  (lift 4.24 -> 7.10)  AUC 0.754 -> 0.866  | AUC PM2.5-driven 0.866  PM10-only 0.470
+     FUSION  AP 0.251 -> 0.311  (lift 3.99 -> 6.76)  AUC 0.720 -> 0.866  | AUC PM2.5-driven 0.866  PM10-only 0.350
+     gap GBT-LR  AP +0.235 -> +0.288   AUC +0.141 -> +0.123
+     gap GRU-LR  AP +0.168 -> +0.230   AUC +0.068 -> +0.097
+     gap TCN-LR  AP +0.136 -> +0.192   AUC +0.019 -> +0.053
+     gap FUSION-LR  AP +0.120 -> +0.176   AUC -0.015 -> +0.052
+  h=24 n=5671 positives=387 PM10-only=104 (26.9%)  prevalence 0.068 -> 0.051 without PM10-only
+     LR      AP 0.244 -> 0.235  (lift 3.57 -> 4.62)  AUC 0.810 -> 0.842  | AUC PM2.5-driven 0.842  PM10-only 0.722
+     LinCal  AP 0.142 -> 0.126  (lift 2.07 -> 2.47)  AUC 0.741 -> 0.773  | AUC PM2.5-driven 0.773  PM10-only 0.654
+     GBT     AP 0.247 -> 0.269  (lift 3.62 -> 5.29)  AUC 0.783 -> 0.830  | AUC PM2.5-driven 0.830  PM10-only 0.657
+     GRU     AP 0.279 -> 0.321  (lift 4.09 -> 6.31)  AUC 0.783 -> 0.851  | AUC PM2.5-driven 0.851  PM10-only 0.598
+     TCN     AP 0.228 -> 0.266  (lift 3.34 -> 5.23)  AUC 0.710 -> 0.793  | AUC PM2.5-driven 0.793  PM10-only 0.483
+     FUSION  AP 0.287 -> 0.304  (lift 4.20 -> 5.98)  AUC 0.821 -> 0.863  | AUC PM2.5-driven 0.863  PM10-only 0.709
+     gap GBT-LR  AP +0.003 -> +0.034   AUC -0.027 -> -0.012
+     gap GRU-LR  AP +0.035 -> +0.086   AUC -0.027 -> +0.009
+     gap TCN-LR  AP -0.016 -> +0.031   AUC -0.100 -> -0.049
+     gap FUSION-LR  AP +0.043 -> +0.069   AUC +0.011 -> +0.021
+
+Zagreb
+  h= 1 n=4199 positives=1139 PM10-only=1 (0.1%)  prevalence 0.271 -> 0.271 without PM10-only
+     LR      AP 0.738 -> 0.738  (lift 2.72 -> 2.72)  AUC 0.846 -> 0.846  | AUC PM2.5-driven 0.846  PM10-only nan
+     LinCal  AP 0.773 -> 0.772  (lift 2.85 -> 2.85)  AUC 0.863 -> 0.863  | AUC PM2.5-driven 0.863  PM10-only nan
+     GBT     AP 0.715 -> 0.716  (lift 2.64 -> 2.64)  AUC 0.877 -> 0.877  | AUC PM2.5-driven 0.877  PM10-only nan
+     GRU     AP 0.819 -> 0.819  (lift 3.02 -> 3.02)  AUC 0.926 -> 0.926  | AUC PM2.5-driven 0.926  PM10-only nan
+     TCN     AP 0.724 -> 0.724  (lift 2.67 -> 2.67)  AUC 0.884 -> 0.884  | AUC PM2.5-driven 0.884  PM10-only nan
+     FUSION  AP 0.758 -> 0.758  (lift 2.79 -> 2.80)  AUC 0.906 -> 0.906  | AUC PM2.5-driven 0.906  PM10-only nan
+     gap GBT-LR  AP -0.023 -> -0.023   AUC +0.031 -> +0.032
+     gap GRU-LR  AP +0.080 -> +0.081   AUC +0.080 -> +0.080
+     gap TCN-LR  AP -0.015 -> -0.014   AUC +0.038 -> +0.038
+     gap FUSION-LR  AP +0.020 -> +0.020   AUC +0.060 -> +0.060
+  h=12 n=4182 positives=1138 PM10-only=1 (0.1%)  prevalence 0.272 -> 0.272 without PM10-only
+     LR      AP 0.629 -> 0.630  (lift 2.31 -> 2.32)  AUC 0.785 -> 0.785  | AUC PM2.5-driven 0.785  PM10-only nan
+     LinCal  AP 0.653 -> 0.653  (lift 2.40 -> 2.40)  AUC 0.797 -> 0.798  | AUC PM2.5-driven 0.798  PM10-only nan
+     GBT     AP 0.549 -> 0.549  (lift 2.02 -> 2.02)  AUC 0.800 -> 0.800  | AUC PM2.5-driven 0.800  PM10-only nan
+     GRU     AP 0.789 -> 0.789  (lift 2.90 -> 2.90)  AUC 0.889 -> 0.889  | AUC PM2.5-driven 0.889  PM10-only nan
+     TCN     AP 0.807 -> 0.807  (lift 2.97 -> 2.97)  AUC 0.897 -> 0.897  | AUC PM2.5-driven 0.897  PM10-only nan
+     FUSION  AP 0.798 -> 0.798  (lift 2.93 -> 2.94)  AUC 0.891 -> 0.891  | AUC PM2.5-driven 0.891  PM10-only nan
+     gap GBT-LR  AP -0.081 -> -0.081   AUC +0.015 -> +0.015
+     gap GRU-LR  AP +0.159 -> +0.159   AUC +0.104 -> +0.104
+     gap TCN-LR  AP +0.178 -> +0.177   AUC +0.112 -> +0.111
+     gap FUSION-LR  AP +0.169 -> +0.169   AUC +0.106 -> +0.106
+  h=24 n=4162 positives=1147 PM10-only=1 (0.1%)  prevalence 0.276 -> 0.275 without PM10-only
+     LR      AP 0.623 -> 0.623  (lift 2.26 -> 2.26)  AUC 0.797 -> 0.797  | AUC PM2.5-driven 0.797  PM10-only nan
+     LinCal  AP 0.468 -> 0.468  (lift 1.70 -> 1.70)  AUC 0.673 -> 0.673  | AUC PM2.5-driven 0.673  PM10-only nan
+     GBT     AP 0.660 -> 0.660  (lift 2.39 -> 2.40)  AUC 0.823 -> 0.823  | AUC PM2.5-driven 0.823  PM10-only nan
+     GRU     AP 0.770 -> 0.770  (lift 2.79 -> 2.80)  AUC 0.890 -> 0.891  | AUC PM2.5-driven 0.891  PM10-only nan
+     TCN     AP 0.691 -> 0.692  (lift 2.51 -> 2.51)  AUC 0.853 -> 0.853  | AUC PM2.5-driven 0.853  PM10-only nan
+     FUSION  AP 0.509 -> 0.509  (lift 1.85 -> 1.85)  AUC 0.773 -> 0.773  | AUC PM2.5-driven 0.773  PM10-only nan
+     gap GBT-LR  AP +0.037 -> +0.036   AUC +0.026 -> +0.026
+     gap GRU-LR  AP +0.147 -> +0.147   AUC +0.094 -> +0.094
+     gap TCN-LR  AP +0.068 -> +0.068   AUC +0.056 -> +0.056
+     gap FUSION-LR  AP -0.114 -> -0.114   AUC -0.024 -> -0.024

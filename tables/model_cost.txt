@@ -1,0 +1,22 @@
+design   h arch      params      kMAC  fp32 KB  int8 KB  act KB  check
+single   1 GRU       349185    8303.7   1364.0    341.0     4.0  ok
+single   1 TCN        16449     384.0     64.3     16.1     9.0  ok
+single   1 FUSION     31937     372.8    124.8     31.2     7.2  ok
+single  12 GRU        22785     527.6     89.0     22.3     1.0  ok
+single  12 TCN        63617    1505.3    248.5     62.1    18.0  ok
+single  12 FUSION     16801     109.1     65.6     16.4     4.0  ok
+single  24 GRU        22785     527.6     89.0     22.3     1.0  ok
+single  24 TCN        42817    1006.1    167.3     41.8    18.0  ok
+single  24 FUSION     20929     347.2     81.8     20.4     6.9  ok
+multi    1 GRU       151041    3585.2    590.0    147.5     2.0  ok
+multi    1 TCN        15393     355.6     60.1     15.0     9.0  ok
+multi    1 FUSION     21569     362.5     84.3     21.1     6.9  ok
+multi   12 GRU         2753      61.1     10.8      2.7     0.2  ok
+multi   12 TCN        42817    1006.1    167.3     41.8    18.0  ok
+multi   12 FUSION     20001     138.0     78.1     19.5     7.0  ok
+multi   24 GRU        10113     232.7     39.5      9.9     0.5  ok
+multi   24 TCN        42817    1006.1    167.3     41.8    18.0  ok
+multi   24 FUSION     19713     342.3     77.0     19.3     3.9  ok
+
+parameter-count mismatches: 0
+logistic regression: 6 params, 5 MACs on window means (+120 additions), 24 B fp32
