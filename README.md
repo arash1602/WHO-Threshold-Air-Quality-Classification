@@ -131,3 +131,22 @@ A sweep also writes per-training artifacts, which are not shipped (see `.gitigno
 ## Data license
 
 The SensEURCity dataset is CC-BY-4.0, from its authors; it is not redistributed here.
+
+## Revision analyses
+
+Added for the journal revision. They reuse the fold plans and caches above, so every number is paired fold-by-fold with the deep-model results.
+
+| Script | What it adds | Output |
+| --- | --- | --- |
+| `extra_baselines.py --horizon H` | Gradient-boosted trees on 30 window statistics, linear calibration followed by the WHO rule, and the logistic regression recomputed with per-window scores saved. Same inner-fold selection, refit and single outer-test score as the networks. Needs the dataset; CPU only, about 1 to 2 minutes per outer fold. | `tuning_results/h<H>/extra_baselines_ctx24.json`, `tuning_results/h<H>/extra_preds/` |
+| `stats_extra.py` | Nadeau–Bengio corrected resampled t-test, exact Wilcoxon test and Holm adjustment for the within-city comparisons; calibration (Brier, ECE) of the deep models. No data needed. | `tables/stats_extra.txt`, `tables/tab_stats_corrected.tex` |
+| `bootstrap_ci.py` | Day-block bootstrap 95 % intervals for each predictor's AP and its difference from the logistic regression and the trees, within each held-out city. | `tables/bootstrap_ci.{txt,json}` |
+| `revision_numbers.py` | Every number the revision quotes: baseline means, all paired tests, multi-city tables, bootstrap intervals, which pollutant drives the label, calibration. | `tables/revision_numbers.txt` |
+
+```
+python extra_baselines.py --horizon 1     # repeat for 12 and 24
+python bootstrap_ci.py
+python revision_numbers.py
+```
+
+`make_figures.py` also had a bug fix: the prevalence figure's panels share one x-axis, and each panel used to set its own limit, so the last panel's range clipped high-prevalence folds (Zagreb-b1, prevalence 0.58) from the others.

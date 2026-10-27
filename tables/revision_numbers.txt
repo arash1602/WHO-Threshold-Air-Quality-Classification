@@ -1,0 +1,170 @@
+recomputed LR AP vs shipped: max |diff| = 8.67e-06
+
+SINGLE CITY, means over 15 folds (AP mean +/- sd; F2 at tuned threshold)
+ h=1: prevalence 0.245; NB factor 0.323
+   WHO     AP 0.570 +/- 0.300   F2 0.403
+   LR      AP 0.693 +/- 0.234   F2 0.699
+   LinCal  AP 0.625 +/- 0.271   F2 0.689
+   GBM     AP 0.680 +/- 0.240   F2 0.687
+   GRU     AP 0.742 +/- 0.229   F2 0.708
+   TCN     AP 0.747 +/- 0.226   F2 0.698
+   FUSION  AP 0.747 +/- 0.214   F2 0.689
+ h=12: prevalence 0.234; NB factor 0.320
+   WHO     AP 0.512 +/- 0.285   F2 0.368
+   LR      AP 0.684 +/- 0.178   F2 0.671
+   LinCal  AP 0.622 +/- 0.227   F2 0.655
+   GBM     AP 0.664 +/- 0.224   F2 0.685
+   GRU     AP 0.732 +/- 0.223   F2 0.675
+   TCN     AP 0.765 +/- 0.178   F2 0.691
+   FUSION  AP 0.750 +/- 0.181   F2 0.687
+ h=24: prevalence 0.237; NB factor 0.331
+   WHO     AP 0.435 +/- 0.277   F2 0.323
+   LR      AP 0.605 +/- 0.232   F2 0.625
+   LinCal  AP 0.602 +/- 0.212   F2 0.610
+   GBM     AP 0.635 +/- 0.221   F2 0.654
+   GRU     AP 0.653 +/- 0.241   F2 0.672
+   TCN     AP 0.655 +/- 0.229   F2 0.673
+   FUSION  AP 0.633 +/- 0.216   F2 0.645
+
+SINGLE CITY paired tests: row minus reference, Holm over the 9 cells of each family
+ vs LR, AP:
+   h= 1 GRU    +0.049 wins 11/15  t 0.066/0.199  NB 0.381/1.000  W 0.030/0.151
+   h= 1 TCN    +0.054 wins 15/15  t 0.001/0.004  NB 0.062/0.500  W 0.000/0.001
+   h= 1 FUSION +0.054 wins 13/15  t 0.004/0.023  NB 0.139/0.836  W 0.004/0.026
+   h=12 GRU    +0.048 wins 11/15  t 0.136/0.271  NB 0.482/1.000  W 0.055/0.192
+   h=12 TCN    +0.081 wins 15/15  t 0.000/0.000  NB 0.009/0.083  W 0.000/0.001
+   h=12 FUSION +0.067 wins 14/15  t 0.001/0.009  NB 0.088/0.616  W 0.002/0.011
+   h=24 GRU    +0.049 wins 10/15  t 0.042/0.169  NB 0.333/1.000  W 0.055/0.192
+   h=24 TCN    +0.051 wins 10/15  t 0.033/0.167  NB 0.308/1.000  W 0.048/0.192
+   h=24 FUSION +0.028 wins  9/15  t 0.169/0.271  NB 0.526/1.000  W 0.303/0.303
+   significant (Holm, 0.05): t 4/9, NB 0/9, W 4/9
+ vs LR, F2:
+   h= 1 GRU    +0.010 wins  7/15  t 0.619/1.000  NB 0.820/1.000  W 0.761/1.000
+   h= 1 TCN    -0.000 wins  9/15  t 0.991/1.000  NB 0.996/1.000  W 0.847/1.000
+   h= 1 FUSION -0.010 wins  7/15  t 0.618/1.000  NB 0.820/1.000  W 0.762/1.000
+   h=12 GRU    +0.004 wins  7/15  t 0.846/1.000  NB 0.929/1.000  W 0.761/1.000
+   h=12 TCN    +0.020 wins  7/15  t 0.333/1.000  NB 0.655/1.000  W 0.599/1.000
+   h=12 FUSION +0.016 wins  7/15  t 0.448/1.000  NB 0.727/1.000  W 0.762/1.000
+   h=24 GRU    +0.047 wins 11/15  t 0.121/0.970  NB 0.471/1.000  W 0.119/0.951
+   h=24 TCN    +0.048 wins  9/15  t 0.101/0.909  NB 0.444/1.000  W 0.078/0.706
+   h=24 FUSION +0.020 wins  8/15  t 0.443/1.000  NB 0.728/1.000  W 0.497/1.000
+   significant (Holm, 0.05): t 0/9, NB 0/9, W 0/9
+ vs GBM, AP:
+   h= 1 GRU    +0.062 wins 13/15  t 0.238/0.950  NB 0.584/1.000  W 0.030/0.211
+   h= 1 TCN    +0.067 wins 12/15  t 0.074/0.442  NB 0.395/1.000  W 0.035/0.212
+   h= 1 FUSION +0.067 wins 12/15  t 0.078/0.442  NB 0.402/1.000  W 0.083/0.333
+   h=12 GRU    +0.068 wins 11/15  t 0.052/0.363  NB 0.349/1.000  W 0.064/0.319
+   h=12 TCN    +0.101 wins 11/15  t 0.003/0.028  NB 0.126/1.000  W 0.003/0.030
+   h=12 FUSION +0.086 wins 12/15  t 0.016/0.129  NB 0.233/1.000  W 0.012/0.100
+   h=24 GRU    +0.019 wins 11/15  t 0.523/1.000  NB 0.773/1.000  W 0.330/0.991
+   h=24 TCN    +0.020 wins  8/15  t 0.478/1.000  NB 0.748/1.000  W 0.454/0.991
+   h=24 FUSION -0.002 wins  8/15  t 0.936/1.000  NB 0.971/1.000  W 0.978/0.991
+   significant (Holm, 0.05): t 1/9, NB 0/9, W 1/9
+ vs GBM, F2:
+   h= 1 GRU    +0.021 wins  7/15  t 0.467/1.000  NB 0.739/1.000  W 0.890/1.000
+   h= 1 TCN    +0.011 wins  8/15  t 0.636/1.000  NB 0.829/1.000  W 0.890/1.000
+   h= 1 FUSION +0.002 wins  7/15  t 0.960/1.000  NB 0.982/1.000  W 0.561/1.000
+   h=12 GRU    -0.010 wins  7/15  t 0.744/1.000  NB 0.881/1.000  W 0.639/1.000
+   h=12 TCN    +0.006 wins  9/15  t 0.854/1.000  NB 0.933/1.000  W 0.679/1.000
+   h=12 FUSION +0.002 wins  6/15  t 0.937/1.000  NB 0.971/1.000  W 0.762/1.000
+   h=24 GRU    +0.018 wins 11/15  t 0.604/1.000  NB 0.815/1.000  W 0.188/1.000
+   h=24 TCN    +0.019 wins 12/15  t 0.527/1.000  NB 0.775/1.000  W 0.083/0.749
+   h=24 FUSION -0.009 wins  9/15  t 0.790/1.000  NB 0.905/1.000  W 0.847/1.000
+   significant (Holm, 0.05): t 0/9, NB 0/9, W 0/9
+ vs LinCal, AP:
+   h= 1 GRU    +0.117 wins 13/15  t 0.000/0.002  NB 0.047/0.336  W 0.000/0.002
+   h= 1 TCN    +0.122 wins 14/15  t 0.000/0.002  NB 0.042/0.336  W 0.000/0.001
+   h= 1 FUSION +0.122 wins 13/15  t 0.003/0.011  NB 0.122/0.497  W 0.001/0.007
+   h=12 GRU    +0.109 wins 12/15  t 0.001/0.007  NB 0.083/0.497  W 0.001/0.007
+   h=12 TCN    +0.143 wins 15/15  t 0.000/0.000  NB 0.018/0.166  W 0.000/0.001
+   h=12 FUSION +0.128 wins 12/15  t 0.001/0.007  NB 0.083/0.497  W 0.003/0.013
+   h=24 GRU    +0.051 wins 10/15  t 0.076/0.229  NB 0.405/1.000  W 0.083/0.250
+   h=24 TCN    +0.053 wins 10/15  t 0.099/0.229  NB 0.442/1.000  W 0.107/0.250
+   h=24 FUSION +0.030 wins 10/15  t 0.211/0.229  NB 0.565/1.000  W 0.252/0.252
+   significant (Holm, 0.05): t 6/9, NB 0/9, W 6/9
+ vs LinCal, F2:
+   h= 1 GRU    +0.019 wins  9/15  t 0.428/1.000  NB 0.716/1.000  W 0.252/1.000
+   h= 1 TCN    +0.009 wins 10/15  t 0.735/1.000  NB 0.877/1.000  W 0.599/1.000
+   h= 1 FUSION -0.001 wins  8/15  t 0.979/1.000  NB 0.990/1.000  W 0.978/1.000
+   h=12 GRU    +0.020 wins  8/15  t 0.361/1.000  NB 0.673/1.000  W 0.391/1.000
+   h=12 TCN    +0.037 wins 13/15  t 0.124/0.747  NB 0.468/1.000  W 0.035/0.247
+   h=12 FUSION +0.032 wins  9/15  t 0.093/0.650  NB 0.424/1.000  W 0.151/0.909
+   h=24 GRU    +0.062 wins 10/15  t 0.024/0.196  NB 0.277/1.000  W 0.027/0.213
+   h=24 TCN    +0.063 wins 12/15  t 0.011/0.102  NB 0.212/1.000  W 0.002/0.022
+   h=24 FUSION +0.035 wins  9/15  t 0.137/0.747  NB 0.490/1.000  W 0.168/0.909
+   significant (Holm, 0.05): t 0/9, NB 0/9, W 1/9
+
+SINGLE CITY baselines vs LR (AP):
+   GBM     h= 1 -0.013 wins  8/15 NB p 0.865  W p 0.762
+   GBM     h=12 -0.020 wins  6/15 NB p 0.744  W p 0.454
+   GBM     h=24 +0.030 wins 10/15 NB p 0.638  W p 0.359
+   LinCal  h= 1 -0.068 wins  3/15 NB p 0.211  W p 0.005
+   LinCal  h=12 -0.061 wins  5/15 NB p 0.284  W p 0.048
+   LinCal  h=24 -0.002 wins  8/15 NB p 0.959  W p 0.978
+
+MULTI CITY AP by held-out city (Antwerp, Oslo, Zagreb), mean, mean F2
+ h=1
+   LR      0.660 0.096 0.738  mean 0.498  F2 0.545  >LR 0/3  >GBM 2/3
+   LinCal  0.681 0.109 0.773  mean 0.521  F2 0.509  >LR 3/3  >GBM 2/3
+   GBM     0.626 0.433 0.715  mean 0.591  F2 0.630  >LR 1/3  >GBM 0/3
+   GRU     0.743 0.329 0.819  mean 0.630  F2 0.672  >LR 3/3  >GBM 2/3
+   TCN     0.797 0.295 0.724  mean 0.605  F2 0.671  >LR 2/3  >GBM 2/3
+   FUSION  0.738 0.333 0.758  mean 0.609  F2 0.648  >LR 3/3  >GBM 2/3
+ h=12
+   LR      0.619 0.131 0.629  mean 0.460  F2 0.594  >LR 0/3  >GBM 1/3
+   LinCal  0.620 0.142 0.653  mean 0.471  F2 0.568  >LR 3/3  >GBM 1/3
+   GBM     0.653 0.366 0.549  mean 0.522  F2 0.635  >LR 2/3  >GBM 0/3
+   GRU     0.729 0.299 0.789  mean 0.606  F2 0.654  >LR 3/3  >GBM 2/3
+   TCN     0.734 0.267 0.807  mean 0.603  F2 0.621  >LR 3/3  >GBM 2/3
+   FUSION  0.702 0.251 0.798  mean 0.584  F2 0.634  >LR 3/3  >GBM 2/3
+ h=24
+   LR      0.535 0.244 0.623  mean 0.467  F2 0.586  >LR 0/3  >GBM 0/3
+   LinCal  0.513 0.142 0.468  mean 0.374  F2 0.494  >LR 0/3  >GBM 0/3
+   GBM     0.571 0.247 0.660  mean 0.492  F2 0.594  >LR 3/3  >GBM 0/3
+   GRU     0.630 0.279 0.770  mean 0.560  F2 0.609  >LR 3/3  >GBM 3/3
+   TCN     0.631 0.228 0.691  mean 0.517  F2 0.585  >LR 2/3  >GBM 2/3
+   FUSION  0.617 0.287 0.509  mean 0.471  F2 0.593  >LR 2/3  >GBM 2/3
+
+MULTI CITY day-block bootstrap: AP difference vs LR, 95% CI
+   h1-Antwerp   (416 d) GRU +0.082[+0.020,+0.145]*  TCN +0.137[+0.084,+0.190]*  FUSION +0.078[+0.023,+0.135]*  gbm -0.035[-0.115,+0.048]   reg_lin +0.021[-0.029,+0.070] 
+   h1-Oslo      (323 d) GRU +0.234[+0.130,+0.322]*  TCN +0.199[+0.108,+0.288]*  FUSION +0.237[+0.132,+0.327]*  gbm +0.337[+0.199,+0.432]*  reg_lin +0.014[-0.011,+0.033] 
+   h1-Zagreb    (380 d) GRU +0.080[+0.018,+0.136]*  TCN -0.015[-0.099,+0.062]   FUSION +0.020[-0.048,+0.082]   gbm -0.023[-0.120,+0.068]   reg_lin +0.034[-0.016,+0.081] 
+   h12-Antwerp  (416 d) GRU +0.110[+0.045,+0.170]*  TCN +0.116[+0.058,+0.170]*  FUSION +0.083[+0.021,+0.143]*  gbm +0.034[-0.044,+0.107]   reg_lin +0.001[-0.030,+0.036] 
+   h12-Oslo     (322 d) GRU +0.168[+0.086,+0.255]*  TCN +0.136[+0.059,+0.224]*  FUSION +0.120[+0.052,+0.200]*  gbm +0.235[+0.122,+0.352]*  reg_lin +0.011[-0.014,+0.040] 
+   h12-Zagreb   (379 d) GRU +0.159[+0.077,+0.239]*  TCN +0.178[+0.107,+0.242]*  FUSION +0.169[+0.091,+0.244]*  gbm -0.081[-0.198,+0.029]   reg_lin +0.023[-0.022,+0.068] 
+   h24-Antwerp  (415 d) GRU +0.095[+0.024,+0.162]*  TCN +0.096[+0.023,+0.166]*  FUSION +0.082[+0.013,+0.149]*  gbm +0.035[-0.040,+0.106]   reg_lin -0.022[-0.052,+0.007] 
+   h24-Oslo     (325 d) GRU +0.035[-0.047,+0.114]   TCN -0.016[-0.115,+0.069]   FUSION +0.043[-0.028,+0.116]   gbm +0.003[-0.088,+0.097]   reg_lin -0.102[-0.171,-0.049]-
+   h24-Zagreb   (380 d) GRU +0.147[+0.100,+0.196]*  TCN +0.068[+0.017,+0.121]*  FUSION -0.114[-0.183,-0.038]-  gbm +0.037[-0.035,+0.109]   reg_lin -0.155[-0.221,-0.088]-
+
+MULTI CITY day-block bootstrap: deep-model AP difference vs GBM, 95% CI
+   h1-Antwerp   GRU +0.117[+0.033,+0.199]*  TCN +0.171[+0.096,+0.247]*  FUSION +0.112[+0.026,+0.196]*
+   h1-Oslo      GRU -0.103[-0.146,-0.037]-  TCN -0.138[-0.181,-0.066]-  FUSION -0.100[-0.145,-0.037]-
+   h1-Zagreb    GRU +0.103[+0.045,+0.166]*  TCN +0.008[-0.041,+0.055]   FUSION +0.043[-0.013,+0.102] 
+   h12-Antwerp  GRU +0.076[-0.004,+0.154]   TCN +0.082[+0.012,+0.154]*  FUSION +0.049[-0.039,+0.135] 
+   h12-Oslo     GRU -0.067[-0.152,+0.003]   TCN -0.098[-0.176,-0.033]-  FUSION -0.114[-0.195,-0.047]-
+   h12-Zagreb   GRU +0.240[+0.155,+0.322]*  TCN +0.258[+0.168,+0.343]*  FUSION +0.250[+0.156,+0.339]*
+   h24-Antwerp  GRU +0.059[-0.021,+0.126]   TCN +0.060[-0.015,+0.128]   FUSION +0.047[-0.032,+0.116] 
+   h24-Oslo     GRU +0.032[-0.033,+0.098]   TCN -0.019[-0.095,+0.041]   FUSION +0.040[-0.010,+0.093] 
+   h24-Zagreb   GRU +0.111[+0.047,+0.176]*  TCN +0.032[-0.031,+0.098]   FUSION -0.150[-0.210,-0.078]-
+
+Which pollutant drives the label (positive windows, test sets of the multi design)
+   h= 1 Antwerp  positives  4411: PM2.5 only 0.762, PM10 only 0.002, both 0.236; PM2.5 prevalence 0.314, PM10 prevalence 0.075
+   h= 1 Oslo     positives   361: PM2.5 only 0.537, PM10 only 0.274, both 0.188; PM2.5 prevalence 0.045, PM10 prevalence 0.029
+   h= 1 Zagreb   positives  1139: PM2.5 only 0.866, PM10 only 0.001, both 0.133; PM2.5 prevalence 0.271, PM10 prevalence 0.036
+   h= 1 pooled: PM2.5 only 0.769, PM10 only 0.018, both 0.213
+   h=12 Antwerp  positives  4402: PM2.5 only 0.766, PM10 only 0.002, both 0.232; PM2.5 prevalence 0.315, PM10 prevalence 0.074
+   h=12 Oslo     positives   361: PM2.5 only 0.532, PM10 only 0.283, both 0.186; PM2.5 prevalence 0.045, PM10 prevalence 0.029
+   h=12 Zagreb   positives  1138: PM2.5 only 0.861, PM10 only 0.001, both 0.138; PM2.5 prevalence 0.272, PM10 prevalence 0.038
+   h=12 pooled: PM2.5 only 0.770, PM10 only 0.019, both 0.211
+   h=24 Antwerp  positives  4454: PM2.5 only 0.766, PM10 only 0.002, both 0.232; PM2.5 prevalence 0.320, PM10 prevalence 0.075
+   h=24 Oslo     positives   387: PM2.5 only 0.496, PM10 only 0.269, both 0.235; PM2.5 prevalence 0.050, PM10 prevalence 0.034
+   h=24 Zagreb   positives  1147: PM2.5 only 0.858, PM10 only 0.001, both 0.141; PM2.5 prevalence 0.275, PM10 prevalence 0.039
+   h=24 pooled: PM2.5 only 0.766, PM10 only 0.019, both 0.215
+
+Calibration on outer test sets (mean over folds): Brier / ECE
+   single h= 1  LR 0.136/0.166  GBM 0.121/0.098  GRU 0.135/0.147  TCN 0.122/0.119  FUSION 0.126/0.136
+   single h=12  LR 0.140/0.163  GBM 0.127/0.113  GRU 0.127/0.138  TCN 0.117/0.126  FUSION 0.122/0.127
+   single h=24  LR 0.166/0.201  GBM 0.138/0.121  GRU 0.149/0.168  TCN 0.143/0.144  FUSION 0.143/0.160
+   multi  h= 1  LR 0.155/0.140  GBM 0.135/0.105  GRU 0.141/0.148  TCN 0.131/0.109  FUSION 0.125/0.102
+   multi  h=12  LR 0.203/0.232  GBM 0.158/0.128  GRU 0.144/0.143  TCN 0.132/0.121  FUSION 0.154/0.149
+   multi  h=24  LR 0.202/0.194  GBM 0.175/0.163  GRU 0.163/0.157  TCN 0.158/0.149  FUSION 0.210/0.226

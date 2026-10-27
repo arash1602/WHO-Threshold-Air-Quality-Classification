@@ -1,0 +1,44 @@
+Single-city mean n_test/n_dev = 0.256 (corrected variance factor 0.323 vs 1/k = 0.067)
+
+Architecture minus logistic regression, single city, 15 folds per horizon
+metric      h arch       diff  wins       t  t_holm      NB  NB_holm       W  W_holm
+AP          1 GRU      +0.049  11/15   0.066   0.199   0.381    1.000   0.030   0.151
+AP          1 TCN      +0.054  15/15   0.001   0.004   0.062    0.500   0.000   0.001
+AP          1 FUSION   +0.054  13/15   0.004   0.023   0.139    0.836   0.004   0.026
+AP         12 GRU      +0.048  11/15   0.136   0.271   0.482    1.000   0.055   0.192
+AP         12 TCN      +0.081  15/15   0.000   0.000   0.009    0.083   0.000   0.001
+AP         12 FUSION   +0.067  14/15   0.001   0.009   0.088    0.616   0.002   0.011
+AP         24 GRU      +0.049  10/15   0.042   0.169   0.333    1.000   0.055   0.192
+AP         24 TCN      +0.051  10/15   0.033   0.167   0.308    1.000   0.048   0.192
+AP         24 FUSION   +0.028   9/15   0.169   0.271   0.526    1.000   0.303   0.303
+F2@tuned    1 GRU      +0.010   7/15   0.619   1.000   0.820    1.000   0.761   1.000
+F2@tuned    1 TCN      -0.000   9/15   0.991   1.000   0.996    1.000   0.847   1.000
+F2@tuned    1 FUSION   -0.010   7/15   0.618   1.000   0.820    1.000   0.762   1.000
+F2@tuned   12 GRU      +0.004   7/15   0.846   1.000   0.929    1.000   0.761   1.000
+F2@tuned   12 TCN      +0.020   7/15   0.333   1.000   0.655    1.000   0.599   1.000
+F2@tuned   12 FUSION   +0.016   7/15   0.448   1.000   0.727    1.000   0.762   1.000
+F2@tuned   24 GRU      +0.047  11/15   0.121   0.970   0.471    1.000   0.119   0.951
+F2@tuned   24 TCN      +0.048   9/15   0.101   0.909   0.444    1.000   0.078   0.706
+F2@tuned   24 FUSION   +0.020   8/15   0.443   1.000   0.728    1.000   0.497   1.000
+AP: significant at 0.05 -- plain t 6/9, Holm t 4/9, NB 1/9, Holm NB 0/9, Wilcoxon 6/9, Holm Wilcoxon 4/9
+F2@tuned: significant at 0.05 -- plain t 0/9, Holm t 0/9, NB 0/9, Holm NB 0/9, Wilcoxon 0/9, Holm Wilcoxon 0/9
+
+Calibration of deep-model test probabilities (mean over folds)
+  single h= 1 GRU    Brier 0.135  ECE 0.147
+  single h= 1 TCN    Brier 0.122  ECE 0.119
+  single h= 1 FUSION Brier 0.126  ECE 0.136
+  single h=12 GRU    Brier 0.127  ECE 0.138
+  single h=12 TCN    Brier 0.117  ECE 0.126
+  single h=12 FUSION Brier 0.122  ECE 0.127
+  single h=24 GRU    Brier 0.149  ECE 0.168
+  single h=24 TCN    Brier 0.143  ECE 0.144
+  single h=24 FUSION Brier 0.143  ECE 0.160
+  multi  h= 1 GRU    Brier 0.141  ECE 0.148
+  multi  h= 1 TCN    Brier 0.131  ECE 0.109
+  multi  h= 1 FUSION Brier 0.125  ECE 0.102
+  multi  h=12 GRU    Brier 0.144  ECE 0.143
+  multi  h=12 TCN    Brier 0.132  ECE 0.121
+  multi  h=12 FUSION Brier 0.154  ECE 0.149
+  multi  h=24 GRU    Brier 0.163  ECE 0.157
+  multi  h=24 TCN    Brier 0.158  ECE 0.149
+  multi  h=24 FUSION Brier 0.210  ECE 0.226
