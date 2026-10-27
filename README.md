@@ -144,6 +144,8 @@ Added for the journal revision. They reuse the fold plans and caches above, so e
 | `oslo_mechanism.py` | Tests of the held-out-Oslo explanation from saved predictions: sign of the logistic regression's PM10 weight within and across cities, scores with PM10-only exceedances removed, and ranking of PM2.5- and PM10-driven exceedances separately. No data needed. | `tables/oslo_mechanism.{txt,json}` |
 | `oslo_shift.py` | Covariate-shift diagnosis for held-out Oslo: input ranges against the training cities, single-channel ranking, and linear versus tree models on nested input sets. Needs the dataset on first run, then caches window means. | `tables/oslo_shift.txt` |
 | `model_cost.py` | Parameters, multiply-accumulates and weight memory (32- and 8-bit) of every pooled configuration, computed analytically and checked against the reported parameter counts. No data or PyTorch needed. | `tables/model_cost.{txt,json}` |
+| `seed_refit.py` | Seed sensitivity: refits each outer fold's selected configuration with seeds 1-4 (no new search), plus `--smoke` and a `--check` that reproduces the paper's seed-42 scores. Needs PyTorch and the dataset; see RUN_SEEDS.md. | `seed_results/seed_refit.jsonl` |
+| `seed_analysis.py` | Seed SD against between-fold SD, the range of mean AP over seeds, and whether the within-city tests and cross-city wins hold under every seed. | `tables/seed_analysis.txt`, `tables/tab_seed.tex` |
 | `revision_numbers.py` | Every number the revision quotes: baseline means, all paired tests, multi-city tables, bootstrap intervals, which pollutant drives the label, calibration. | `tables/revision_numbers.txt` |
 
 ```
