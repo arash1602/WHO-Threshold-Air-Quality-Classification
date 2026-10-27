@@ -17,13 +17,21 @@ python -m venv .venv
 .venv\Scripts\activate
 ```
 
-**If the PC has an NVIDIA graphics card**, install the GPU build of PyTorch first. Go to https://pytorch.org/get-started/locally/, choose Stable / Windows / Pip / Python / the newest CUDA version, and run the command it shows. Skip this step on a PC without an NVIDIA card.
+**If the PC has an NVIDIA graphics card**, install the GPU build of PyTorch: go to https://pytorch.org/get-started/locally/, choose Stable / Windows / Pip / Python / the newest CUDA version, and run the command it shows.
 
-Then:
+**If it does not**, install the standard build:
 
 ```
-pip install -r requirements.txt
+pip install torch
 ```
+
+Then, in both cases:
+
+```
+pip install numpy pandas scikit-learn scipy matplotlib
+```
+
+(Do not use `pip install -r requirements.txt` here: it pins an exact PyTorch version and can replace the GPU build with a CPU-only one.)
 
 ## 3. Download the dataset (once, about 5.7 GB)
 
