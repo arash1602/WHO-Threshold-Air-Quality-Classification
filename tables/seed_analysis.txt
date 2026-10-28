@@ -1,0 +1,42 @@
+Reproduction check (seed 42, 27 refits): largest |AP - paper AP| = 0.0108
+seeds: 42 (paper) + [1, 2, 3, 4]; 648 refits
+
+SINGLE
+  h= 1 GRU    mean AP 0.742 (seed 42), range over seeds 0.738-0.760; seed SD per fold 0.030, between-fold SD 0.229
+  h= 1 TCN    mean AP 0.747 (seed 42), range over seeds 0.721-0.747; seed SD per fold 0.030, between-fold SD 0.226
+  h= 1 FUSION mean AP 0.747 (seed 42), range over seeds 0.726-0.750; seed SD per fold 0.019, between-fold SD 0.214
+  h=12 GRU    mean AP 0.732 (seed 42), range over seeds 0.732-0.758; seed SD per fold 0.032, between-fold SD 0.223
+  h=12 TCN    mean AP 0.765 (seed 42), range over seeds 0.753-0.767; seed SD per fold 0.029, between-fold SD 0.178
+  h=12 FUSION mean AP 0.750 (seed 42), range over seeds 0.744-0.773; seed SD per fold 0.026, between-fold SD 0.181
+  h=24 GRU    mean AP 0.653 (seed 42), range over seeds 0.594-0.653; seed SD per fold 0.041, between-fold SD 0.241
+  h=24 TCN    mean AP 0.655 (seed 42), range over seeds 0.639-0.656; seed SD per fold 0.026, between-fold SD 0.229
+  h=24 FUSION mean AP 0.633 (seed 42), range over seeds 0.612-0.634; seed SD per fold 0.029, between-fold SD 0.216
+
+MULTI
+  h= 1 GRU    mean AP 0.630 (seed 42), range over seeds 0.579-0.640; seed SD per fold 0.033, between-fold SD 0.215
+  h= 1 TCN    mean AP 0.605 (seed 42), range over seeds 0.571-0.634; seed SD per fold 0.043, between-fold SD 0.221
+  h= 1 FUSION mean AP 0.609 (seed 42), range over seeds 0.587-0.612; seed SD per fold 0.020, between-fold SD 0.196
+  h=12 GRU    mean AP 0.606 (seed 42), range over seeds 0.580-0.606; seed SD per fold 0.018, between-fold SD 0.218
+  h=12 TCN    mean AP 0.603 (seed 42), range over seeds 0.584-0.638; seed SD per fold 0.034, between-fold SD 0.239
+  h=12 FUSION mean AP 0.584 (seed 42), range over seeds 0.532-0.584; seed SD per fold 0.037, between-fold SD 0.238
+  h=24 GRU    mean AP 0.560 (seed 42), range over seeds 0.505-0.600; seed SD per fold 0.039, between-fold SD 0.207
+  h=24 TCN    mean AP 0.517 (seed 42), range over seeds 0.501-0.526; seed SD per fold 0.019, between-fold SD 0.206
+  h=24 FUSION mean AP 0.471 (seed 42), range over seeds 0.463-0.501; seed SD per fold 0.025, between-fold SD 0.138
+
+WITHIN CITY vs logistic regression, per seed (Holm over 9; significant at 0.05)
+  seed 42: diff +0.028 to +0.081; Nadeau-Bengio 0/9, Wilcoxon 4/9
+  seed  1: diff +0.030 to +0.083; Nadeau-Bengio 0/9, Wilcoxon 5/9
+  seed  2: diff +0.018 to +0.089; Nadeau-Bengio 0/9, Wilcoxon 4/9
+  seed  3: diff +0.007 to +0.071; Nadeau-Bengio 0/9, Wilcoxon 4/9
+  seed  4: diff -0.011 to +0.070; Nadeau-Bengio 0/9, Wilcoxon 3/9
+
+ACROSS CITIES: held-out cities on which the architecture beats LR / GBT, per seed
+  h= 1 GRU    >LR 3 3 3 3 3   >GBT 2 2 2 2 2   (seeds 42 1 2 3 4)
+  h= 1 TCN    >LR 2 3 3 3 3   >GBT 2 2 2 2 2   (seeds 42 1 2 3 4)
+  h= 1 FUSION >LR 3 2 2 3 3   >GBT 2 2 2 2 2   (seeds 42 1 2 3 4)
+  h=12 GRU    >LR 3 3 3 3 3   >GBT 2 2 2 2 2   (seeds 42 1 2 3 4)
+  h=12 TCN    >LR 3 3 3 3 3   >GBT 2 2 3 2 2   (seeds 42 1 2 3 4)
+  h=12 FUSION >LR 3 3 3 3 3   >GBT 2 2 2 2 2   (seeds 42 1 2 3 4)
+  h=24 GRU    >LR 3 2 2 2 3   >GBT 3 2 2 2 3   (seeds 42 1 2 3 4)
+  h=24 TCN    >LR 2 2 3 2 3   >GBT 2 2 3 2 3   (seeds 42 1 2 3 4)
+  h=24 FUSION >LR 2 2 1 2 2   >GBT 2 2 1 2 2   (seeds 42 1 2 3 4)
