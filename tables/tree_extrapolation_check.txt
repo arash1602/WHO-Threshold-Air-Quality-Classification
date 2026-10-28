@@ -1,0 +1,8 @@
+Antwerp-b1, h=1: selected tree settings {'learning_rate': 0.05, 'max_leaf_nodes': 7, 'max_iter': 300, 'min_samples_leaf': 20, 'l2_regularization': 1.0}
+  tree AP: training split 0.996, test block 0.462
+  window means, 5th / 50th / 95th percentile: training split | test block
+  SHT31TE            [ 5.5 16.6 25.6] | [ 5.  11.8 22.9]
+  SHT31HE            [35.4 57.6 81.8] | [36.  69.8 81.8]
+  Absolute_humidity  [ 4.4  7.3 13.1] | [ 4.3  6.8 10.2]
+  OPCN3PM25          [ 3.1  8.7 33.3] | [ 2.3  9.9 43.5]
+  OPCN3PM10          [ 7.5 20.3 56. ] | [ 7.3 21.9 61.7]

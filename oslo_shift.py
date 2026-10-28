@@ -78,6 +78,10 @@ def main() -> int:
         say(f"h={h}: train {len(ytr)} windows (Antwerp+Zagreb), Oslo test {len(y)}, prevalence {y.mean():.3f}")
         say(f"  Oslo windows colder than the training 5th percentile ({t5:.1f} C): {cold.mean():.1%}; "
             f"prevalence there {y[cold].mean():.3f}")
+        tmin = tr[:, FEAT.index("SHT31TE")].min()
+        below = te[:, FEAT.index("SHT31TE")] < tmin
+        say(f"  Oslo windows colder than the coldest training window ({tmin:.1f} C): {below.mean():.1%}; "
+            f"prevalence there {y[below].mean():.3f}; share of Oslo exceedances {y[below].sum() / y.sum():.1%}")
         say(f"  optical PM10/PM2.5 ratio, median: train {np.median(ratio(tr)):.2f}, Oslo {np.median(ratio(te)):.2f}")
         say("  channel   pct 5/50/95 train | Oslo          AUC Oslo PM2.5-driven | AUC train (all)")
         for j, f in enumerate(FEAT):

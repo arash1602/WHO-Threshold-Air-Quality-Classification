@@ -1,5 +1,6 @@
 h=1: train 9584 windows (Antwerp+Zagreb), Oslo test 5777, prevalence 0.062
   Oslo windows colder than the training 5th percentile (5.0 C): 25.3%; prevalence there 0.227
+  Oslo windows colder than the coldest training window (-1.7 C): 9.7%; prevalence there 0.462; share of Oslo exceedances 71.5%
   optical PM10/PM2.5 ratio, median: train 2.26, Oslo 2.79
   channel   pct 5/50/95 train | Oslo          AUC Oslo PM2.5-driven | AUC train (all)
   T      [ 5.  16.3 26.4] | [-5.5  9.4 20.2]   0.025 | 0.460
@@ -16,6 +17,7 @@ h=1: train 9584 windows (Antwerp+Zagreb), Oslo test 5777, prevalence 0.062
 
 h=12: train 8886 windows (Antwerp+Zagreb), Oslo test 5730, prevalence 0.063
   Oslo windows colder than the training 5th percentile (3.7 C): 19.1%; prevalence there 0.288
+  Oslo windows colder than the coldest training window (-4.3 C): 7.0%; prevalence there 0.576; share of Oslo exceedances 63.7%
   optical PM10/PM2.5 ratio, median: train 2.30, Oslo 2.80
   channel   pct 5/50/95 train | Oslo          AUC Oslo PM2.5-driven | AUC train (all)
   T      [ 3.7 15.3 26. ] | [-5.5  9.5 20.2]   0.023 | 0.326
