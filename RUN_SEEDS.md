@@ -60,6 +60,13 @@ The full run. With a GPU, expect a few hours; without one, possibly overnight. I
 
 The first run of any of these spends about 8 minutes reading the dataset; later runs start in seconds.
 
+## 4b. Optional: recheck a sample (about 10 minutes)
+
+```
+python seed_refit.py --recheck 30
+```
+Reruns 30 randomly chosen refits and compares them with the recorded results. On the same machine they should be identical; it ends with "reproduce the recorded results exactly".
+
 ## 5. Send back
 
 Zip the `seed_results` folder and send it. That's everything needed; `seed_analysis.py` turns it into the paper's table.

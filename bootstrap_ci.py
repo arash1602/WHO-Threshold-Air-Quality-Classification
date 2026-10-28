@@ -88,12 +88,17 @@ def main() -> int:
     ap.add_argument("--results-dir", default=os.path.join(here, "tuning_results"))
     ap.add_argument("--out", default=os.path.join(here, "tables"))
     ap.add_argument("--B", type=int, default=2000)
+    ap.add_argument("--block-days", type=int, default=1,
+                    help="resample blocks of this many consecutive calendar days (sensitivity to day-to-day dependence); output files get a _b<N>d suffix when N > 1")
     args = ap.parse_args()
     rng = np.random.default_rng(42)
+    sfx = f"_b{args.block_days}d" if args.block_days > 1 else ""
     res, lines = {}, []
     for h in HORIZONS:
         for city in CITIES:
             y, scores, days = load_city(args.results_dir, h, city)
+            if args.block_days > 1:
+                days = (days - days.min()) // args.block_days
             r, n_days = bootstrap(y, scores, days, args.B, rng)
             res[f"h{h}-{city}"] = {"n_days": n_days, **r}
             lines.append(f"h={h:2d} {city:8s} ({n_days} days)")
@@ -104,9 +109,9 @@ def main() -> int:
                                 f"  vs LR {v['diff_vs_lr']:+.3f} "
                                 f"[{v['diff_ci'][0]:+.3f}, {v['diff_ci'][1]:+.3f}]"))
     os.makedirs(args.out, exist_ok=True)
-    with open(os.path.join(args.out, "bootstrap_ci.json"), "w", encoding="utf-8") as f:
+    with open(os.path.join(args.out, f"bootstrap_ci{sfx}.json"), "w", encoding="utf-8") as f:
         json.dump(res, f, indent=1)
-    with open(os.path.join(args.out, "bootstrap_ci.txt"), "w", encoding="utf-8") as f:
+    with open(os.path.join(args.out, f"bootstrap_ci{sfx}.txt"), "w", encoding="utf-8") as f:
         f.write("\n".join(lines) + "\n")
     print("\n".join(lines))
     return 0

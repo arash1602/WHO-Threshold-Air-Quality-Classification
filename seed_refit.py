@@ -85,6 +85,9 @@ def main() -> int:
                          "shipped results, which confirms the setup reproduces the paper")
     ap.add_argument("--smoke", action="store_true",
                     help="one fold, one architecture, one seed, 3 epochs: tests the setup only")
+    ap.add_argument("--recheck", type=int, default=0, metavar="N",
+                    help="rerun N randomly chosen records of seed_refit.jsonl on this machine "
+                         "and compare: with deterministic kernels they should match exactly")
     args = ap.parse_args()
 
     deterministic = not args.no_deterministic
@@ -92,6 +95,20 @@ def main() -> int:
     seeds = args.seeds
     horizons, designs, archs = args.horizons, args.designs, ARCHS
     out_name = "seed_refit.jsonl"
+    recheck_keys, recheck_ref = None, {}
+    if args.recheck:
+        import random
+        with open(os.path.join(args.out_dir, "seed_refit.jsonl"), encoding="utf-8") as f:
+            prior = [json.loads(l) for l in f if l.strip()]
+        for r in prior:
+            recheck_ref[(r["horizon"], r["design"], r["outer"], r["arch"], r["seed"])] = r
+        recheck_keys = set(random.Random(0).sample(sorted(recheck_ref),
+                                                   min(args.recheck, len(recheck_ref))))
+        seeds = sorted({k[4] for k in recheck_keys})
+        out_name = "seed_recheck.jsonl"
+        out_file = os.path.join(args.out_dir, out_name)
+        if os.path.exists(out_file):
+            os.remove(out_file)
     if args.check:
         seeds, out_name = [fbm.SEED], "seed_check.jsonl"
     if args.smoke:
@@ -125,7 +142,9 @@ def main() -> int:
                 for spec in plan:
                     todo = [(a, s) for a in archs for s in seeds
                             if (h, design, spec.outer_id, a, s) not in done
-                            and spec.outer_id in recs[a]]
+                            and spec.outer_id in recs[a]
+                            and (recheck_keys is None
+                                 or (h, design, spec.outer_id, a, s) in recheck_keys)]
                     if not todo:
                         continue
                     print(f"\nh={h} {design} {spec.outer_id}: materializing "
@@ -189,6 +208,16 @@ def main() -> int:
               "Differs from the paper by more than rounding: different hardware or library "
               "versions can do this (see README, Determinism). Report this number with the "
               "results.")
+    if args.recheck:
+        rows = [json.loads(l) for l in open(out_path, encoding="utf-8")]
+        diffs = [abs(r[m] - recheck_ref[(r["horizon"], r["design"], r["outer"], r["arch"],
+                                         r["seed"])][m])
+                 for r in rows for m in ("pr_auc", "roc_auc", "f2_at_threshold")]
+        n_exact = sum(d == 0 for d in diffs)
+        print(f"rechecked {len(rows)} refits: {n_exact} of {len(diffs)} scores identical; "
+              f"largest difference {max(diffs):.6f}")
+        print("The rechecked refits reproduce the recorded results exactly." if max(diffs) == 0
+              else "Some rechecked scores differ; send seed_recheck.jsonl with the results.")
     return 0
 
 
